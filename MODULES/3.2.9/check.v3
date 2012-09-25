@@ -1,0 +1,23 @@
+#!/bin/sh
+
+SOURCE_DIR=$1
+BUILD_DIR=$2
+INSTALL_DIR=$3
+
+VERSION=`echo ${SOURCE_DIR} | awk -F/ '{print $NF}'`
+
+if [ ! -h "${INSTALL_DIR}/default" ]; then
+    ln -s ${VERSION} ${INSTALL_DIR}/default
+fi
+
+#
+# Note: If there is a modulefiles already in /usr/local/Modules directory,
+#       remove it or move to elsewhere before compiling the module source.
+#
+#if [ -d "${INSTALL_DIR}/modulefiles" ]; then
+#    echo "Warning: ${INSTALL_DIR}/modulefiles moved to /tmp, restore it after packaging"
+#    if [ -d "/tmp/modulefiles" ]; then
+#        rm -rf /tmp/modulefiles
+#    fi
+#    mv ${INSTALL_DIR}/modulefiles /tmp
+#fi

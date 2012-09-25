@@ -1,0 +1,23 @@
+#!/bin/sh
+
+SOURCE_DIR=$1
+BUILD_DIR=$2
+INSTALL_DIR=$3
+
+VERSION=`echo ${SOURCE_DIR} | awk -F/ '{print $NF}'`
+
+echo "**** SOURCE_DIR ${SOURCE_DIR} Create symbolic link ${VERSION} to ${INSTALL_DIR}/default"
+
+if [ -d "${INSTALL_DIR}" ]; then
+    mv ${INSTALL_DIR}/Modules/${VERSION} .. 
+    mv ${INSTALL_DIR}/Modules/versions .. 
+    rm -rf ${INSTALL_DIR}/Modules
+fi
+
+if [ ! -h "${INSTALL_DIR}/default" ]; then
+    ln -s ${VERSION} ${INSTALL_DIR}/default
+fi
+
+if [ -d "${INSTALL_DIR}/${VERSION}/init" ]; then
+    cp -f ${SOURCE_DIR}/.modulespath ${INSTALL_DIR}/${VERSION}/init
+fi

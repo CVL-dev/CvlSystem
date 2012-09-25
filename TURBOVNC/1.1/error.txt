@@ -1,0 +1,119 @@
+  Installing : gettext-0.17-16.el6.x86_64                               197/223 
+  /usr/local/turbovnc/1.1/bin/vncinit.sh: line 6: module: command not found
+  which: no vncserver in (/sbin:/bin:/usr/sbin:/usr/bin:/usr/X11R6/bin)
+  cp: cannot stat `/config/Xclients': No such file or directory
+  cp: cannot stat `/config/xfce-applications.menu': No such file or directory
+  cp: cannot stat `/config/cvl_desktop.svg': No such file or directory
+Installing : oxygen-icon-theme-4.3.4-2.el6.noarch                     198/223 
+Installing : xorg-x11-fonts-ISO8859-15-75dpi-7.2-9.1.el6.noarch       199/223 
+
+
+[cvltest@CvlTest2 ~]$ sudo yum groupinstall "CVL Base Packages"
+Loaded plugins: fastestmirror, presto
+Loading mirror speeds from cached hostfile
+ * base: ftp.swin.edu.au
+  * extras: ftp.swin.edu.au
+   * updates: ftp.swin.edu.au
+   CVL                                                                       13/13
+   Setting up Group Process
+   Checking for new repos for mirrors
+   Package libX11-devel-1.3-2.el6.x86_64 already installed and latest version
+   Package libXt-devel-1.0.7-1.el6.x86_64 already installed and latest version
+   Package gdb-7.2-56.el6.x86_64 already installed and latest version
+   Package 5:mutt-1.5.20-2.20091214hg736b6a.el6_1.1.x86_64 already installed and latest version
+   Package ImageMagick-6.5.4.7-6.el6_2.x86_64 already installed and latest version
+   Package cvl-modules3_2_9-3.2.9-2.2.x86_64 already installed and latest version
+   Package lapack-3.2.1-4.el6.x86_64 already installed and latest version
+   Package subversion-1.6.11-7.el6.x86_64 already installed and latest version
+   Package openmotif22-2.2.3-19.el6.x86_64 already installed and latest version
+   Package libmng-devel-1.0.10-4.1.el6.x86_64 already installed and latest version
+   Package gmp-4.3.1-7.el6_2.2.x86_64 already installed and latest version
+   Package gcc-c++-4.4.6-4.el6.x86_64 already installed and latest version
+   Package flex-2.5.35-8.el6.x86_64 already installed and latest version
+   Package boost-devel-1.41.0-11.el6_1.2.x86_64 already installed and latest version
+   Package psacct-6.3.2-63.el6_3.3.x86_64 already installed and latest version
+   Package 1:tcl-devel-8.5.7-6.el6.x86_64 already installed and latest version
+   Package 5:guile-1.8.7-5.el6.x86_64 already installed and latest version
+   Package 1:qt-4.6.2-24.el6.x86_64 already installed and latest version
+   Package edac-utils-0.9-14.el6.x86_64 already installed and latest version
+   Package expat-devel-2.0.1-11.el6_2.x86_64 already installed and latest version
+   Package bison-2.4.1-5.el6.x86_64 already installed and latest version
+   Package rpm-build-4.8.0-27.el6.x86_64 already installed and latest version
+   Package libXi-devel-1.3-3.el6.x86_64 already installed and latest version
+   Package 2:libpng-devel-1.2.49-1.el6_2.x86_64 already installed and latest version
+   Package pcre-devel-7.8-4.el6.x86_64 already installed and latest version
+   Package openmotif-devel-2.3.3-4.el6.x86_64 already installed and latest version
+   Package compat-libf2c-34-3.4.6-19.el6.x86_64 already installed and latest version
+   Package freeglut-devel-2.6.0-1.el6.x86_64 already installed and latest version
+   Package rsync-3.0.6-9.el6.x86_64 already installed and latest version
+   Package bzip2-devel-1.0.5-7.el6_0.x86_64 already installed and latest version
+   Package mesa-libGL-devel-7.11-5.el6.x86_64 already installed and latest version
+   Package openssl-devel-1.0.0-25.el6_3.1.x86_64 already installed and latest version
+   Package gcc-gfortran-4.4.6-4.el6.x86_64 already installed and latest version
+   Package libXScrnSaver-devel-1.2.0-1.el6.x86_64 already installed and latest version
+   Package ncurses-devel-5.7-3.20090208.el6.x86_64 already installed and latest version
+   Package ntp-4.2.4p8-2.el6.centos.x86_64 already installed and latest version
+   Package 2:xinetd-2.3.14-35.el6_3.x86_64 already installed and latest version
+   Package libXaw-devel-1.0.6-4.1.el6.x86_64 already installed and latest version
+   Package 2:vim-X11-7.2.411-1.8.el6.x86_64 already installed and latest version
+   Package 2:vim-enhanced-7.2.411-1.8.el6.x86_64 already installed and latest version
+   Package tkinter-2.6.6-29.el6_2.2.x86_64 already installed and latest version
+   Package libjpeg-devel-6b-46.el6.x86_64 already installed and latest version
+   Package 1:qt-devel-4.6.2-24.el6.x86_64 already installed and latest version
+   Package 1:valgrind-3.6.0-5.el6.x86_64 already installed and latest version
+   Package sysstat-9.0.4-20.el6.x86_64 already installed and latest version
+   Package tftp-0.49-7.el6.x86_64 already installed and latest version
+   Package xorg-x11-server-Xvfb-1.10.6-1.el6.centos.x86_64 already installed and latest version
+   Package binutils-2.20.51.0.2-5.34.el6.x86_64 already installed and latest version
+   Package ltrace-0.5-23.45svn.el6.x86_64 already installed and latest version
+   Package firefox-10.0.6-1.el6.centos.x86_64 already installed and latest version
+   Package libXv-devel-1.0.5-1.el6.x86_64 already installed and latest version
+   Package apr-1.3.9-5.el6_2.x86_64 already installed and latest version
+   Package libXxf86vm-devel-1.1.0-1.el6.x86_64 already installed and latest version
+   Package kernel-devel-2.6.32-279.5.2.el6.x86_64 already installed and latest version
+   Package libexif-devel-0.6.16-4.1.el6.x86_64 already installed and latest version
+   Package yp-tools-2.9-12.el6.x86_64 already installed and latest version
+   Package libstdc++-devel-4.4.6-4.el6.x86_64 already installed and latest version
+   Package m4-1.4.13-5.el6.x86_64 already installed and latest version
+   Package 1:emacs-23.1-21.el6_2.3.x86_64 already installed and latest version
+   Package 1:cpuspeed-1.5-15.el6.x86_64 already installed and latest version
+   Package rsh-0.17-60.el6.x86_64 already installed and latest version
+   Package openssh-server-5.3p1-81.el6.x86_64 already installed and latest version
+   Package 1:nfs-utils-1.2.3-26.el6.x86_64 already installed and latest version
+   Package readline-devel-6.0-4.el6.x86_64 already installed and latest version
+   Package xrestop-0.4-7.1.el6.x86_64 already installed and latest version
+   Package cvs-1.11.23-11.el6_2.1.x86_64 already installed and latest version
+   Package fontconfig-devel-2.8.0-3.el6.x86_64 already installed and latest version
+   Package 1:autofs-5.0.5-54.el6.x86_64 already installed and latest version
+   Package compat-libstdc++-33-3.2.3-69.el6.x86_64 already installed and latest version
+   Package mesa-libGLU-devel-7.11-5.el6.x86_64 already installed and latest version
+   Package pam-devel-1.1.1-10.el6_2.1.x86_64 already installed and latest version
+   Package ypserv-2.19-22.el6.x86_64 already installed and latest version
+   Package sendmail-cf-8.14.4-8.el6.noarch already installed and latest version
+   Package blas-3.2.1-4.el6.x86_64 already installed and latest version
+   Package freetype-devel-2.3.11-6.el6_2.9.x86_64 already installed and latest version
+   Package 1:gedit-2.28.4-3.el6.x86_64 already installed and latest version
+   Package ant-1.7.1-13.el6.x86_64 already installed and latest version
+   Package 3:ypbind-1.20.4-29.el6.x86_64 already installed and latest version
+   Package libXmu-devel-1.0.5-1.el6.x86_64 already installed and latest version
+   Package glibc-devel-2.12-1.80.el6_3.5.x86_64 already installed and latest version
+   Package bzip2-1.0.5-7.el6_0.x86_64 already installed and latest version
+   Package gnuplot-4.2.6-2.el6.x86_64 already installed and latest version
+   Package 1:valgrind-devel-3.6.0-5.el6.x86_64 already installed and latest version
+   Package ImageMagick-c++-devel-6.5.4.7-6.el6_2.x86_64 already installed and latest version
+   Package tcsh-6.17-19.el6_2.x86_64 already installed and latest version
+   Package gperf-3.0.3-9.1.el6.x86_64 already installed and latest version
+   Package gcc-4.4.6-4.el6.x86_64 already installed and latest version
+   Package yum-utils-1.1.30-14.el6.noarch already installed and latest version
+   Package libtool-2.2.6-15.5.el6.x86_64 already installed and latest version
+   Package gcc-java-4.4.6-4.el6.x86_64 already installed and latest version
+   Package 1:tk-devel-8.5.7-5.el6.x86_64 already installed and latest version
+   Package OpenIPMI-libs-2.0.16-12.el6.x86_64 already installed and latest version
+   Package giflib-devel-4.1.6-3.1.el6.x86_64 already installed and latest version
+   Package zlib-devel-1.2.3-27.el6.x86_64 already installed and latest version
+   Package 1:net-snmp-5.5-41.el6_3.1.x86_64 already installed and latest version
+   Package strace-4.5.19-1.11.el6_2.1.x86_64 already installed and latest version
+   Package ghostscript-fonts-5.50-23.1.el6.noarch already installed and latest version
+   Package SDL-1.2.14-3.el6.x86_64 already installed and latest version
+   Package gsl-1.13-1.el6.x86_64 already installed and latest version
+

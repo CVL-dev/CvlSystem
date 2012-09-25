@@ -1,0 +1,24 @@
+#!/bin/sh
+
+SOURCE_DIR=$1
+BUILD_DIR=$2
+INSTALL_DIR=$3
+
+VERSION=`echo ${SOURCE_DIR} | awk -F/ '{print $NF}'`
+
+if [ ! -h "${INSTALL_DIR}/default" ]; then
+    ln -s ${VERSION} ${INSTALL_DIR}/default
+fi
+
+if [ ! -f ${INSTALL_DIR}/validate_module.sh ]; then
+    cp ${SOURCE_DIR}/validate_module.sh ${INSTALL_DIR}
+fi
+
+if [ ! -f ${INSTALL_DIR}/validate_module.tcl ]; then
+    cp ${SOURCE_DIR}/validate_module.tcl ${INSTALL_DIR}
+fi
+
+#
+# Note: If there is a modulefiles already in /usr/local/Modules directory,
+#       remove it or move to elsewhere before making the compilation.
+#

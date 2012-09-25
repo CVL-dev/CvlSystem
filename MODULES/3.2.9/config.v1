@@ -1,0 +1,232 @@
+#!/bin/sh
+#
+# CVL build script
+#
+#
+# Package release number.
+#
+PACKAGE_RELEASE="1.8"
+
+#
+# For source package, set it "ON", for binary package, set it "OFF".
+#
+SOURCE_BUILD_FLAG="ON"
+
+#
+# Configure file.
+#
+CONFIGURE="configure"
+
+#
+# Build configuration set up.
+#
+function ConfigurationCommand() 
+{
+    SOURCE=$1
+    INSTALL=$2
+
+    ${SOURCE}/${CONFIGURE} --prefix=${INSTALL_DIR} -with-module-path=/usr/local/Modules/modulefiles --with-tcl-lib=/usr/lib64 --with-tcl-inc=/usr/include
+}
+
+#
+# Module file description.
+#
+ModuleFileDescription="Environment modules application"
+
+#
+# Module file environment setting, multiplines should be delimited by "\n".
+#
+#EnvironmentModuleList="
+#prepend-path --delim \" \" JPEG_CFLAGS -I/usr/local/$name/$ver/include\n
+#prepend-path --delim \" \" JPEG_LDFLAGS -L/usr/local/$name/$ver/lib\n
+#prepend-path --delim \" \" JPEG_LDFLAGS -lturbojpeg\n
+#prepend-path --delim \" \" CPPFLAGS -I/usr/local/$name/$ver/include\n
+#prepend-path --delim \" \" LDFLAGS -L/usr/local/$name/$ver/lib\n
+#setenv GCONV_PATH /usr/lib64/gconv/\n
+#setenv PBS_ROOT /usr/local/torque/latest
+#"
+
+#
+# Packages to install extra files, format "<FilePath>:<Destination>", 
+# multiple lines must be delimeted by ";".
+#
+PackageInstallFileList="modules.sh:/etc/profile.d;modules.csh:/etc/profile.d"
+
+#
+# Install configuration directories to package in format of
+# "<Source>:<Destination>". multiple lines must be delimeted by ";".
+# Source files must be available in current source directory.
+#
+#PackageInstallDirectoryList=
+
+#
+# Set menu layout in format <project_type>:<application_menu>. If this is not
+# set, the following MeuDirectory and MenuDesktop will be ignored.
+#
+# project_type is curently only defined for "cvl" project.
+# Supporting for "cvl" application_menu includes:
+# - toobox
+# - system
+# - structural-biology
+# - neuroimaging
+# - energy-materials
+#
+# MenuLayout="cvl:structural-biology"
+
+#
+# Set directory menu in format <comment>:<icon>
+#
+#MenuDirectory=
+
+#
+# Set desktop menu in format <executable_file>:<comment>:<icon>
+# The binary_path is a relative path including executable filename but without
+# the installation prefix. For example, if /usr/local/turbovnc/1.1/bin/vncviewer
+# is the FQPN, the executable_file should be set to bin/vncviewer.
+#MenuDesktop=
+
+#
+# Set library dependencies in format <module1>:<module2>...:<moduleN>.
+#
+#LibraryDependency=
+
+#
+# Local build flag, set it to ON for building or OFF otherwise.
+#
+REQUEST_BUILD="ON"
+
+#
+# Local package flag, set it to ON for packaging or OFF otherwise.
+#
+REQUEST_PACKAGE="ON"
+
+#
+# Build in source directory, "ON" or "OFF".
+#
+BUILD_IN_SOURCE="OFF"
+
+#
+# Install module file flag, "ON" or "OFF".
+#
+INSTALL_MODULE_FILE="OFF"
+
+#
+# Binary installation directory "<Source>:<Destination>"
+#
+#InstallDirectory="modules/3.2.9/:./"
+InstallDirectory="Modules:./"
+
+#
+# Make command
+#
+function MakeCommand()
+{
+    make
+}
+
+#
+# Make install command
+#
+function InstallCommand()
+{
+    make install
+}
+
+#
+# Function to write module files.
+#
+function WriteModuleFile()
+{
+    # Module file directory.
+    ModuleFileDirectory="$1"
+
+    # Module base content.
+    ModuleBase="$2"
+
+    # Module file version content.
+    ModuleFileVersion="$3"
+
+    # Module version.
+    ModuleVersionNumber="$4"
+
+    if [ ! -d ${ModuleFileDirectory} ]; then
+        mkdir -p ${ModuleFileDirectory} || { echo "Failed to create directory ${MODULE_DIRECTORY}" && exit 1; }
+    fi
+
+    echo "${ModuleBase}" > ${ModuleFileDirectory}/${ModuleVersionNumber}
+    if [ ! -z "${EnvironmentModuleList}" ]; then
+        echo -e "${EnvironmentModuleList}" >> ${ModuleFileDirectory}/${ModuleVersionNumber}
+    fi
+
+    if [ ! -f ${ModuleFileDirectory}/.base ]; then
+        cp ${ModuleFileDirectory}/${ModuleVersionNumber} ${ModuleFileDirectory}/.base
+        echo "${ModuleFileDescription}" > ${ModuleFileDirectory}/.desc 
+        echo "${ModuleFileVersion} ${ModuleVersionNumber}" > ${ModuleFileDirectory}/.version
+    fi
+}
+
+case "$1" in
+    -b|--build)
+        echo -n ${REQUEST_BUILD}
+        ;;
+    -c|--config)
+        SOURCE_DIR="$2"
+        INSTALL_DIR="$3"
+        ConfigurationCommand ${SOURCE_DIR} ${SOURCE_DIR}
+        ;;
+    -d|--directory-installation-list)
+        echo -n ${PackageInstallDirectoryList}
+        ;;
+    -e|--enviornment-module-list)
+        echo -n ${EnvironmentModuleList}
+        ;;
+    -f|--file-installation-list)
+        echo -n ${PackageInstallFileList}
+        ;;
+    -g|--group-module-file-installation)
+        echo -n ${INSTALL_MODULE_FILE}
+        ;;
+    -h|--install-directory)
+        echo -n ${InstallDirectory}
+        ;;
+    -i|--install-command)
+        InstallCommand
+        ;;
+    -k|--make-command)
+        MakeCommand
+        ;;
+    -l|--menu-layout)
+        echo -n ${MenuLayout}
+        ;;
+    -m|--module-file)
+        Directory="$2"
+        Base="$3"
+        Version="$4"
+        VersionNumber="$5"
+        WriteModuleFile "${Directory}" "${Base}" "${Version}" "${VersionNumber}"
+        ;;
+    -n|--menu-directory)
+        echo -n ${MenuDirectory}
+        ;;
+    -o|--menu-desktop)
+        echo -n ${MenuDesktop}
+        ;;
+    -p|--package)
+        echo -n ${REQUEST_PACKAGE}
+        ;;
+    -q|--library-dependency)
+        echo -n ${LibraryDependency}
+        ;;
+    -r|--release)
+        echo -n ${PACKAGE_RELEASE}
+        ;;
+    -s|--use-source-directory)
+        echo -n ${BUILD_IN_SOURCE}
+        ;;
+    -t|--type)
+        echo -n ${CONFIGURE}
+        ;;
+    -z|--source-build-flag)
+        echo -n ${SOURCE_BUILD_FLAG}
+        ;;
+esac

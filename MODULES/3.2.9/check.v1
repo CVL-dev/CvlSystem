@@ -1,0 +1,32 @@
+#!/bin/sh
+
+SOURCE_DIR=$1
+BUILD_DIR=$2
+# Remove hard coded "Modules" in source code.
+INSTALL_DIR=`dirname $3`
+
+VERSION=`echo ${SOURCE_DIR} | awk -F/ '{print $NF}'`
+
+echo "**** SOURCE_DIR ${SOURCE_DIR} Create symbolic link ${VERSION} to ${INSTALL_DIR}/default"
+
+if [ -d "${INSTALL_DIR}" ]; then
+    mv ${INSTALL_DIR}/Modules/${VERSION} ${INSTALL_DIR} 
+    mv ${INSTALL_DIR}/Modules/versions ${INSTALL_DIR} 
+    rm -rf ${INSTALL_DIR}/Modules
+fi
+
+if [ ! -h "${INSTALL_DIR}/default" ]; then
+    ln -s ${VERSION} ${INSTALL_DIR}/default
+fi
+
+if [ -d "${INSTALL_DIR}/${VERSION}/init" ]; then
+    cp -f ${SOURCE_DIR}/.modulespath ${INSTALL_DIR}/${VERSION}/init
+fi
+
+if [ -d "${INSTALL_DIR}/modulefiles" ]; then
+    echo "Warning: ${INSTALL_DIR}/modulefiles moved to /tmp, restore it after packaging"
+    if [ -d "/tmp/modulefiles" ]; then
+        rm -rf /tmp/modulefiles
+    fi
+    mv ${INSTALL_DIR}/modulefiles /tmp
+fi
