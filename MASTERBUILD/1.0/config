@@ -10,7 +10,7 @@ ModuleFileDescription="CMake, the cross-platform, open-source build system."
 #
 # Package release number.
 #
-PACKAGE_RELEASE="2.17"
+PACKAGE_RELEASE="3.0"
 
 #
 # For source package, set it "ON", for binary package, set it "OFF".
@@ -45,6 +45,9 @@ function ConfigurationCommand()
 #
 PackageInstallFileList="resource/cvlcreate:/usr/local/bin;
 resource/cvlbuild:/usr/local/bin;
+resource/cvltest:/usr/local/bin;
+resource/cvllicense:/usr/local/bin;
+resource/cvlpath.sh:/usr/local/bin;
 resource/cvlinit:/usr/local/bin"
 
 #

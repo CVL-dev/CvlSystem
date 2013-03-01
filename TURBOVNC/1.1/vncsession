@@ -1,4 +1,7 @@
 #!/bin/sh
+#
+# CVL VNC session
+#
 
 ARG0=`basename $0`
 Geometry="1440x900"
@@ -27,6 +30,20 @@ function Usage()
     echo "${ARG0} stop <display_number> - Stop VNC session"
 }
 
+USERHOME=`echo ~`
+VNCHOME="${USERHOME}/.vnc"
+LOG="${VNCHOME}/cvlvnclog.txt"
+
+if [ ! -d "${USERHOME}" ]; then
+    exit 1
+fi
+
+function Log()
+{
+    message=$1
+    echo "`date`: ${message}" >> ${LOG} 
+}
+
 function SetVnc()
 {
     vnc=$1
@@ -35,12 +52,52 @@ function SetVnc()
         if [ -d "/usr/local/tigervnc" ]; then
             VncServer=${vnc}
         else
-            echo "Error: tigervnc is not installed"
+            Log "Error: tigervnc is not installed"
         fi
     elif [ "${vnc}" == "turbovnc" ]; then
         VncServer=${vnc}
     else
-        echo "Error: ${vnc} is not a valid name"
+        Log "Error: ${vnc} is not a valid name"
+    fi
+}
+
+VNCHOME=`echo ~/.vnc`
+
+function CreateVncPassword()
+{
+    UserName=$1
+    Password=$2
+    
+    if [ ! -d ${VNCHOME} ]; then
+        mkdir ${VNCHOME}
+    fi
+
+    module load ${VncServer}
+
+    echo ${Password} | vncpasswd -f ${UserName} --stdin > ${VNCHOME}/passwd
+    Log "Create ${UserName} VNC password"
+}
+
+function VncPassword()
+{
+    UserName=$1
+    Password=$2
+   
+    if [[ ${UserName} == "" || ${Password} == "" ]]; then
+        Log "Error: ${UserName} password is not valid"
+        exit 1
+    fi
+
+    if [ $( id -u ) -eq 0 ]; then
+        USERHOME=`su ${UserName} -c "echo ~"`
+        VNCHOME="${USERHOME}/.vnc"
+        LOG="${VNCHOME}/cvlvnclog.txt"
+        if [ ! -d ${VNCHOME} ]; then
+            su ${UserName} -c "mkdir ${VNCHOME}"
+        fi
+        su ${UserName} -c "module load ${VncServer}; echo ${Password} | vncpasswd -f ${UserName} --stdin > ${VNCHOME}/passwd; chmod 600 ${VNCHOME}/passwd; echo `date`: Create ${UserName} VNC password >> ${LOG}" 
+    else
+        CreateVncPassword ${UserName} ${Password}
     fi
 }
 
@@ -77,6 +134,8 @@ function Initialisation()
         mkdir -p ${HOME}/.config/xfce4
     fi
 
+    module load turbovnc
+
     CONFIG_PREFIX=`which vncserver | sed "s/\/bin\/vncserver//g"`
     CONFIG_LIB="${CONFIG_PREFIX}/config"
 
@@ -89,9 +148,12 @@ function Initialisation()
             mkdir ${HOME}/.vnc
         fi
         if [ ! -f ${HOME}/.vnc/xstartup ]; then
-            cp ${CONFIG_LIB}/xstartup ${HOME}/.vnc
+            cp ${CONFIG_LIB}/xstartup.nautilus ${HOME}/.vnc/xstartup
+            cp ${CONFIG_LIB}/%gconf.xml ${HOME}/.gconf/apps
         fi
     fi
+    
+    module unload turbovnc
 }
 
 while [ $# -ge 1 ]; do
@@ -110,6 +172,10 @@ while [ $# -ge 1 ]; do
             List
             exit 0
             ;;
+        -p|--password)
+            VncPassword $2 $3 
+            exit 0
+            ;;
         -s|stop)
             Display=$2
             Stop
@@ -122,6 +188,6 @@ while [ $# -ge 1 ]; do
     shift
 done
 
-module load ${VncServer} 
 Initialisation
+module load ${VncServer} 
 Start

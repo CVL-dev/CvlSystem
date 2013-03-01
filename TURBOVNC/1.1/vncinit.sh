@@ -21,6 +21,8 @@ fi
 
 cp -f ${CONFIG_LIB}/xfce-applications.menu /etc/xdg/menus
 cp -f ${CONFIG_LIB}/cvl_desktop.svg /usr/share/xfce4/backdrops 
+cp -f ${CONFIG_LIB}/cvl_desktop.svg /usr/share/backgrounds 
+cp -f ${CONFIG_LIB}/default.xml /usr/share/backgrounds 
 
 # Fixed hostname
 HOSTNAME=`hostname`
