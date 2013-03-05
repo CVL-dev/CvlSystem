@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/cvl/!svn/ver/349/MasterBuild/trunk/MASTERBUILD/0.1
+END
+cmake-2.8.8.tar.gz
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/cvl/!svn/ver/97/MasterBuild/trunk/MASTERBUILD/0.1/cmake-2.8.8.tar.gz
+END
+config
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/cvl/!svn/ver/361/MasterBuild/trunk/MASTERBUILD/0.1/config
+END
+resource
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/cvl/!svn/ver/97/MasterBuild/trunk/MASTERBUILD/0.1/resource
+END
+validate_module.sh
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/cvl/!svn/ver/361/MasterBuild/trunk/MASTERBUILD/0.1/validate_module.sh
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/cvl/!svn/ver/97/MasterBuild/trunk/MASTERBUILD/0.1/CMakeLists.txt
+END
+check
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/cvl/!svn/ver/361/MasterBuild/trunk/MASTERBUILD/0.1/check
+END

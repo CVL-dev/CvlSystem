@@ -1,0 +1,6 @@
+#!/bin/sh
+
+SOURCE_DIR=$1
+BUILD_DIR=$2
+INSTALL_DIR=$3
+
