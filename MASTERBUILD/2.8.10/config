@@ -10,7 +10,7 @@ ModuleFileDescription="CMake, the cross-platform, open-source build system."
 #
 # Package release number.
 #
-PACKAGE_RELEASE="3.0"
+PACKAGE_RELEASE="3.3"
 
 #
 # For source package, set it "ON", for binary package, set it "OFF".
@@ -31,6 +31,8 @@ function ConfigurationCommand()
     INSTALL=$2
 
     echo
+
+    # ${SOURCE}/${CONFIGURE} --prefix=${INSTALL}
 }
 
 #
@@ -119,6 +121,8 @@ INSTALL_MODULE_FILE="ON"
 function MakeCommand()
 {
     echo
+
+    # make
 }
 
 #
@@ -128,6 +132,8 @@ function MakeCommand()
 function InstallCommand()
 {
     echo
+
+    # make install
 }
 
 #
