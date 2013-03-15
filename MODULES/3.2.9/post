@@ -1,1 +1,19 @@
+#!/bin/sh
+
+PATTERN="exclude=environment-modules"
+EXCLUDE=$(grep -Fxq ${PATTERN} /etc/yum.conf)
+if [[ "${EXCLUDE}" == "" ]]; then
+    echo ${PATTERN} >> /etc/yum.conf
+fi
+
 source /etc/profile.d/modules.sh
+module load modules
+CLEARN=$(which package_clean.sh)
+MPATH=$(which package_clean.sh | sed "s/\/bin\/package_clean.sh//g")
+${CLEARN} ${MPATH}
+
+ICON="/usr/local/icons"
+
+if [ ! -d ${ICON} ]; then
+    mkdir ${ICON}
+fi

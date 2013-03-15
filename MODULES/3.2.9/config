@@ -5,7 +5,7 @@
 #
 # Package release number.
 #
-PACKAGE_RELEASE="2.6"
+PACKAGE_RELEASE="3.1"
 
 #
 # For source package, set it "ON", for binary package, set it "OFF".
@@ -46,7 +46,7 @@ ModuleFileDescription="Environment modules application"
 # Packages to install extra files, format "<FilePath>:<Destination>", 
 # multiple lines must be delimeted by ";".
 #
-PackageInstallFileList="modules.sh:/etc/profile.d;modules.csh:/etc/profile.d;validate_module.tcl:/usr/local/bin"
+PackageInstallFileList="modules.sh:/etc/profile.d;modules.csh:/etc/profile.d;validate_module.tcl:/usr/local/bin;google-chrome.repo:/etc/yum.repos.d"
 
 #
 # Install configuration directories to package in format of
