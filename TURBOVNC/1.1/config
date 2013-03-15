@@ -10,7 +10,7 @@ ModuleFileDescription="TurboVNC is a free remote control software package develo
 #
 # Package release number.
 #
-PACKAGE_RELEASE="2.17"
+PACKAGE_RELEASE="3.0"
 
 #
 # For source package, set it "ON", for binary package, set it "OFF".
@@ -51,6 +51,9 @@ prepend-path --delim \" \" LDFLAGS -L/usr/local/$name/\$ver/lib"
 PackageInstallFileList="turbovncserver.conf:/etc;
 turbovncserver-auth.conf:/etc;
 desktop:/etc/sysconfig;
+cvlvis:/usr/local/bin;
+cvlvisrun:/usr/local/bin;
+testglx.sh:/usr/local/bin;
 vncsession:/usr/local/bin"
 
 #
@@ -58,7 +61,7 @@ vncsession:/usr/local/bin"
 # "<Source>:<Destination>". multiple lines must be delimeted by ";".
 # Source files must be available in current source directory.
 #
-PackageInstallDirectoryList="cvl:/usr/local"
+#PackageInstallDirectoryList="cvl:/usr/local"
 
 #
 # Set menu layout in format <project_type>:<application_menu>. If this is not
