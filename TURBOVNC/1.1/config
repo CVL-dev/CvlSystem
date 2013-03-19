@@ -10,7 +10,7 @@ ModuleFileDescription="TurboVNC is a free remote control software package develo
 #
 # Package release number.
 #
-PACKAGE_RELEASE="3.0"
+PACKAGE_RELEASE="3.1"
 
 #
 # For source package, set it "ON", for binary package, set it "OFF".
