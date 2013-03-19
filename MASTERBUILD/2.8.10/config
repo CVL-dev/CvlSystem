@@ -10,7 +10,7 @@ ModuleFileDescription="CMake, the cross-platform, open-source build system."
 #
 # Package release number.
 #
-PACKAGE_RELEASE="3.3"
+PACKAGE_RELEASE="3.5"
 
 #
 # For source package, set it "ON", for binary package, set it "OFF".
