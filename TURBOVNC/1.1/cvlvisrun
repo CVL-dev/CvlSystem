@@ -20,7 +20,7 @@ if [[ ${CHECK_GPU} == "" ]]; then
     module load mesalib
 else
     module load virtualgl 
-    COMMAND="vglrun"
+    COMMAND=$(which vglrun)
 fi
 
 ${COMMAND} ${APPLICATION}
