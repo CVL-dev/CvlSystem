@@ -10,7 +10,7 @@ ModuleFileDescription="Application"
 #
 # Package release number.
 #
-PACKAGE_RELEASE="2.0"
+PACKAGE_RELEASE="3.2"
 
 #
 # For source package, set it "ON", for binary package, set it "OFF".
@@ -33,7 +33,13 @@ function ConfigurationCommand()
     module load libxcbproto
     module load libxcb
 
-    ${SOURCE}/${CONFIGURE} --prefix=${INSTALL} --enable-xlib-glx --disable-dri --with-gallium-drivers=swrast
+    ${SOURCE}/${CONFIGURE} --prefix=${INSTALL} --enable-xlib-glx --disable-dri --with-gallium-drivers=swrast --enable-osmesa --with-osmesa-bits=32
+
+#    ${SOURCE}/${CONFIGURE} --prefix=${INSTALL} --disable-dri --enable-xlib-glx --enable-glx --with-gallium-drivers=swrast --enable-osmesa --with-osmesa-bits=32
+
+#    ${SOURCE}/${CONFIGURE} --prefix=${INSTALL} --disable-dri --disable-glx --with-gallium-drivers=swrast --enable-osmesa --with-osmesa-bits=32
+
+#    ${SOURCE}/${CONFIGURE} --prefix=${INSTALL} --with-gallium-drivers=swrast --enable-osmesa --with-osmesa-bits=32
 }
 
 #
