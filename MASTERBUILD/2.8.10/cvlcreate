@@ -1,0 +1,121 @@
+#!/bin/sh
+#
+# CVL build script to create a source structure.
+#
+
+ARG0=`basename $0`
+
+function Usage() 
+{
+    echo "Usage: ${ARG0} <module_name> <version_number>"
+    echo "The ${ARG0} will create a structure of build directories under /usr/local/src/<module_name>/<version_number>"
+    exit 1
+}
+
+# Check parameters
+if [ $# -lt 2 ]; then
+    Usage
+fi
+
+NAME=$1
+MODULE=`echo ${NAME} | tr '[:lower:]' '[:upper:]'`
+VERSION=$2
+SOURCE_DIR=$3
+DEFAULT_SOURCE="/usr/local/src"
+
+if [ -z "${SOURCE_DIR}" ]; then
+    SOURCE_DIR=${DEFAULT_SOURCE}
+elif [ ${SOURCE_DIR} == "." ]; then
+    SOURCE_DIR=`pwd`
+fi
+
+if [ "${SOURCE_DIR}" == "${DEFAULT_SOURCE}" ]; then
+    if [ ! $( id -u ) -eq 0 ]; then
+        echo "You need to be root to perform this command"
+        exit 1
+    fi
+fi
+
+module load masterbuild || { echo "If CVL build package has not been installed, please install the package first." && exit 1; }
+
+function TestScriptNotFound()
+{
+    DIR=$1
+
+    TEST_SCRIPT=`find ${DIR} -executable -type f`
+
+    if [ -z ${TEST_SCRIPT} ]; then
+        return 0 
+    else
+        return 1 
+    fi
+}
+
+CVL_PREFIX=`which ccreate | sed "s/\/bin\/ccreate//g"`
+CVL_LIB="${CVL_PREFIX}/share/cvl"
+
+if [ ! -d ${CVL_LIB} ]; then
+    echo "CVL build package is not found, please install CVL build package".
+    exit 1
+fi
+
+CMAKE_FILE="CMakeLists.txt"    
+BUILD_LIST="CvlBuildList.txt"
+
+if [ ! -d ${SOURCE_DIR}/${MODULE}/${VERSION} ]; then
+    mkdir -p ${SOURCE_DIR}/${MODULE}/${VERSION} || { echo "Create directory failed" && exit 1; }
+fi
+
+if [ ! -d ${SOURCE_DIR}/Test ]; then
+    mkdir ${SOURCE_DIR}/Test || { echo "Create directory failed" && exit 1; }
+fi
+
+if TestScriptNotFound ${SOURCE_DIR}/Test ; then
+    cp ${CVL_LIB}/test1 ${SOURCE_DIR}/Test || { echo "copy test file failed" && exit 1; }
+fi
+
+if [ ! -d ${SOURCE_DIR}/${MODULE}/Test ]; then
+    mkdir ${SOURCE_DIR}/${MODULE}/Test || { echo "Create directory failed" && exit 1; }
+fi
+
+if TestScriptNotFound ${SOURCE_DIR}/${MODULE}/Test ; then
+    cp ${CVL_LIB}/test1 ${SOURCE_DIR}/${MODULE}/Test || { echo "copy test file failed" && exit 1; }
+fi
+
+if [ ! -d ${SOURCE_DIR}/${MODULE}/${VERSION}/Test ]; then
+    mkdir ${SOURCE_DIR}/${MODULE}/${VERSION}/Test || { echo "Create directory failed" && exit 1; }
+fi
+
+if TestScriptNotFound ${SOURCE_DIR}/${MODULE}/${VERSION}/Test ; then
+    cp ${CVL_LIB}/test1 ${SOURCE_DIR}/${MODULE}/${VERSION}/Test || { echo "copy test file failed" && exit 1; }
+fi
+
+if [ ! -f ${SOURCE_DIR}/${CMAKE_FILE} ]; then
+    cp ${CVL_LIB}/Root_${CMAKE_FILE} ${SOURCE_DIR}/${CMAKE_FILE} || { echo "copy root file failed" && exit 1; }
+fi
+
+if [ ! -f ${SOURCE_DIR}/${BUILD_LIST} ]; then
+    cp ${CVL_LIB}/${BUILD_LIST} ${SOURCE_DIR} || { echo "copy build list failed" && exit 1; }
+fi
+    
+if [ ! -f ${SOURCE_DIR}/${MODULE}/${CMAKE_FILE} ]; then
+    cp ${CVL_LIB}/Module_${CMAKE_FILE} ${SOURCE_DIR}/${MODULE}/${CMAKE_FILE} || { echo "copy module file failed" && exit 1; }
+fi
+
+if [ ! -f ${SOURCE_DIR}/${MODULE}/${VERSION}/${CMAKE_FILE} ]; then
+    cp ${CVL_LIB}/Version_${CMAKE_FILE} ${SOURCE_DIR}/${MODULE}/${VERSION}/${CMAKE_FILE} || { echo "copy version file failed" && exit 1; }
+fi
+
+if [ ! -f ${SOURCE_DIR}/${MODULE}/${VERSION}/config ]; then
+    cp ${CVL_LIB}/config ${SOURCE_DIR}/${MODULE}/${VERSION} || { echo "copy config file failed" && exit 1; }
+fi
+
+if [ ! -f ${SOURCE_DIR}/${MODULE}/${VERSION}/check ]; then
+    cp ${CVL_LIB}/check ${SOURCE_DIR}/${MODULE}/${VERSION} || { echo "copy post installation check file failed" && exit 1; }
+fi
+
+if [ ! -f ${SOURCE_DIR}/${MODULE}/${VERSION}/validate_module.sh ]; then
+    cp ${CVL_LIB}/validate_module.sh ${SOURCE_DIR}/${MODULE}/${VERSION} || { echo "copy validate_module.sh file failed" && exit 1; }
+fi
+
+echo "Create CVL application build system succeeded, next step to add source tarball to the directory ${SOURCE_DIR}/${MODULE}/${VERSION}"

@@ -1,0 +1,109 @@
+#!/bin/sh
+#
+# CVL build script.
+#
+
+ARG0=`basename $0`
+SOURCE_DEFAULT="/usr/local/src"
+BUILD_DIR=`pwd`
+
+function Usage()
+{
+    echo "Usage: "
+    echo "${ARG0} or ${ARG0} -b|--build - Building source code"
+    echo "${ARG0} -p|--package - Packaging"
+    echo "${ARG0} -t|--test - Testing"
+    echo "${ARG0} -h|--help - This help"
+}
+
+function CheckPermission()
+{
+    SOURCE_DIR=$1
+    if [ "${SOURCE_DIR}" == "${SOURCE_DEFAULT}" ]; then
+        if [ ! $( id -u ) -eq 0 ]; then
+            echo "You need to be root to perform this command"
+            exit 1
+        fi
+    fi
+
+}
+
+function Build()
+{
+    SOURCE=$1
+
+    if [ -z "${SOURCE}" ]; then
+        SOURCE="${SOURCE_DEFAULT}"
+        CheckPermission ${SOURCE}
+    fi
+
+    cmake ${SOURCE} || { echo "Configuration error 1" && exit 1; }
+
+    ccmake ${BUILD_DIR} || { echo "Menu selection error 2" && exit 1; }
+
+    make || { echo "Build error 3" && exit 1; }
+}
+
+function AutoBuild()
+{
+    SOURCE=$1
+    DESTINATION=$2
+
+    if [ -z "${SOURCE}" ]; then
+        SOURCE="${SOURCE_DEFAULT}"
+        CheckPermission ${SOURCE}
+    fi
+
+    DESTINATION_DEFAULT="/usr/local/package"
+    if [ -z "${DESTINATION}" ]; then
+        DESTINATION="${DESTINATION_DEFAULT}"
+        if [ ! -d "${DESTINATION}" ]; then
+            mkdir "${DESTINATION}" || { echo "Failed to make package directory ${DESTINATION} " && exit 1; }
+        fi
+        CheckPermission ${DESTINATION}
+    fi
+
+    MODULE_FILE="CvlBuildList.txt"
+    if [ ! -f ${SOURCE}/${MODULE_FILE} ]; then
+        echo "File ${MODULE_FILE} not found"
+    fi
+    while IFS=$'\t' read -r -a MODULE_LIST
+    do
+        module="${MODULE_LIST[0]}"
+        module=$(echo ${module} | sed -e 's/ /_/g')
+        module=$(echo "${module}" | sed 's/ *$//g')
+        comment=$(echo "${module}" | grep ^#)
+        if [[ ${comment} == "" && ${module} != "" ]]; then
+            module="Module_${module}"
+            echo "Build ${module}"
+            rm -rf * || { echo "Failed to clean cache" && exit 1; }
+            cmake -D${module}=ON ${SOURCE}
+            make
+            cpack -G RPM
+            cp *.rpm ${DESTINATION} || { echo "Failed to copy packages" && exit 1; }
+        fi
+    done < ${SOURCE}/${MODULE_FILE}
+}
+
+module load masterbuild
+
+case "$1" in
+    -a|--auto)
+        AutoBuild $2 $3
+        ;;
+    -b|--build)
+        Build $2
+        ;;
+    -p|--package)
+        cpack -G RPM
+        ;;
+    -h|--help)
+        Usage
+        ;;
+    -t|--test)
+        ctest .
+        ;;
+    *)
+        Build $1
+        ;;
+esac       

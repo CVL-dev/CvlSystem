@@ -1,0 +1,27 @@
+#!/bin/sh
+#
+# CVL test script.
+#
+
+ARG0=`basename $0`
+SOURCE_DEFAULT="/usr/local/src"
+BUILD_DIR=`pwd`
+
+if [ $# -lt 1 ]; then
+    SOURCE_DIR=${SOURCE_DEFAULT}
+    if [ ! $( id -u ) -eq 0 ]; then
+        echo "You need to be root to perform this command"
+        exit 1
+    fi
+else
+    SOURCE_DIR=$1
+fi
+
+module load masterbuild
+
+if [ ! -f "${BUILD_DIR}/CMakeCache.txt" ]; then
+    cmake ${SOURCE_DIR} || { echo "Configuration error" && exit 1; }
+    ccmake ${BUILD_DIR} || { echo "Menu selection error" && exit 1; }
+fi
+
+ctest ${BUILD_DIR} || { echo "Test error" && exit 1; }

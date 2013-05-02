@@ -1,0 +1,85 @@
+#!/bin/sh
+#
+# CVL build script to initialize source build structure.
+#
+
+# Check root access
+if [ ! $( id -u ) -eq 0 ]; then
+    echo "You need to be root to perform this command"
+    exit 1
+fi
+
+function TestScriptNotFound()
+{
+    DIR=$1
+
+    TEST_SCRIPT=`find ${DIR} -executable -type f`
+
+    if [ -z ${TEST_SCRIPT} ]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+module load masterbuild || { echo "If CVL build package has not been installed, please install the package first." && exit 1; }
+
+CURRENT_DIR=`pwd`
+CMAKE_FILE="CMakeLists.txt"
+CVL_PREFIX=`which cmake | sed "s/\/bin\/cmake//g"`
+CVL_LIB="${CVL_PREFIX}/share/cvl"
+
+if [ ! -f ${CMAKE_FILE} ]; then
+    cp ${CVL_LIB}/Root_${CMAKE_FILE} ${CMAKE_FILE} || { echo "copy root file failed" && exit 1; }
+fi
+
+if [ ! -d ${CURRENT_DIR}/Test ]; then
+    mkdir ${CURRENT_DIR}/Test || { echo "Create directory failed" && exit 1; }
+fi
+
+if TestScriptNotFound ${CURRENT_DIR}/Test ; then
+    cp ${CVL_LIB}/test1 ${CURRENT_DIR}/Test || { echo "copy test file failed" && exit 1; }
+fi
+
+for MODULE in *; do
+
+    if [ -d "${MODULE}" ] && [ "${MODULE}" != "Test" ] && [ "${MODULE}" != ".svn" ]; then
+        if [ ! -f ${MODULE}/${CMAKE_FILE} ]; then
+             cp ${CVL_LIB}/Module_${CMAKE_FILE} ${MODULE}/${CMAKE_FILE} || { echo "copy module file failed" && exit 1; }
+        fi
+        
+        if [ ! -d ${MODULE}/Test ]; then
+            mkdir ${MODULE}/Test || { echo "Create directory failed" && exit 1; }
+        fi
+
+        if TestScriptNotFound ${MODULE}/Test ; then
+            cp ${CVL_LIB}/test1 ${MODULE}/Test || { echo "copy test file failed" && exit 1; }
+        fi
+    
+        for VERSION in ${MODULE}/*; do
+
+            if [ -d "${VERSION}" ] && [ "${MODULE}" != "Test" ] && [ "${MODULE}" != ".svn" ] && [[ "${VERSION}" = *[[:digit:]]* ]]; then
+                if [ ! -f ${VERSION}/${CMAKE_FILE} ]; then
+                    cp ${CVL_LIB}/Version_${CMAKE_FILE} ${VERSION}/${CMAKE_FILE} || { echo "copy version file failed" && exit 1; }
+                fi
+                
+                if [ ! -d ${VERSION}/Test ]; then
+                    mkdir ${VERSION}/Test || { echo "Create directory failed" && exit 1; }
+                fi
+
+                if TestScriptNotFound ${VERSION}/Test ; then
+                    cp ${CVL_LIB}/test1 ${VERSION}/Test || { echo "copy test file failed" && exit 1; }
+                fi
+    
+                if [ ! -f ${VERSION}/config ]; then
+                    cp ${CVL_LIB}/config ${VERSION} || { echo "copy config file failed" && exit 1; }
+                fi
+                
+                if [ ! -f ${VERSION}/check ]; then
+                    cp ${CVL_LIB}/check ${VERSION} || { echo "copy post installation check file failed" && exit 1; }
+                fi
+            fi
+        done
+    fi
+done
+

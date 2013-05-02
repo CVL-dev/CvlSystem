@@ -45,12 +45,13 @@ function ConfigurationCommand()
 # multiple lines must be delimeted by ";". Source files must exist in
 # the current directory.
 #
-PackageInstallFileList="resource/cvlcreate:/usr/local/bin;
-resource/cvlbuild:/usr/local/bin;
-resource/cvltest:/usr/local/bin;
-resource/cvllicense:/usr/local/bin;
-resource/cvlpath.sh:/usr/local/bin;
-resource/cvlinit:/usr/local/bin"
+PackageInstallFileList="cvlcreate:/usr/local/bin;
+cvlbuild:/usr/local/bin;
+cvltest:/usr/local/bin;
+cvllicense:/usr/local/bin;
+cvlpath.sh:/usr/local/bin;
+macros:/etc/rpm;
+cvlinit:/usr/local/bin"
 
 #
 # Install configuration directories to package in format of
