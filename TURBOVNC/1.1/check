@@ -9,11 +9,8 @@ if [ ! -d "${INSTALL_DIR}/config" ]; then
     mkdir ${INSTALL_DIR}/config
 fi
 cp -f ${SOURCE_DIR}/Xclients ${INSTALL_DIR}/config
-cp -fr ${SOURCE_DIR}/xfce4 ${INSTALL_DIR}/config
-cp -f ${SOURCE_DIR}/xfce-applications.menu ${INSTALL_DIR}/config
 cp -f ${SOURCE_DIR}/cvl_desktop.svg ${INSTALL_DIR}/config
-cp -f ${SOURCE_DIR}/default.xml ${INSTALL_DIR}/config
-cp -f ${SOURCE_DIR}/xstartup.nautilus ${INSTALL_DIR}/config
+cp -f ${SOURCE_DIR}/xstartup.gnome ${INSTALL_DIR}/config
 cp -f ${SOURCE_DIR}/%gconf.xml ${INSTALL_DIR}/config
 
 # Copy module validation script to package directory.
