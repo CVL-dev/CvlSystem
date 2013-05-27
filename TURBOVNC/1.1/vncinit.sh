@@ -14,13 +14,13 @@ CONFIG_PREFIX=`which vncserver | sed "s/\/bin\/vncserver//g"`
 CONFIG_LIB="${CONFIG_PREFIX}/config"
 
 # Check XFCE
-XFCE=`cat /etc/X11/xinit/Xclients | grep XFCE`
-if [ -z "${XFCE}" ]; then
-    cp -f ${CONFIG_LIB}/Xclients /etc/X11/xinit
-fi
+#XFCE=`cat /etc/X11/xinit/Xclients | grep XFCE`
+#if [ -z "${XFCE}" ]; then
+#    cp -f ${CONFIG_LIB}/Xclients /etc/X11/xinit
+#fi
 
-cp -f ${CONFIG_LIB}/xfce-applications.menu /etc/xdg/menus
-cp -f ${CONFIG_LIB}/cvl_desktop.svg /usr/share/xfce4/backdrops 
+#cp -f ${CONFIG_LIB}/xfce-applications.menu /etc/xdg/menus
+#cp -f ${CONFIG_LIB}/cvl_desktop.svg /usr/share/xfce4/backdrops 
 cp -f ${CONFIG_LIB}/cvl_desktop.svg /usr/share/backgrounds 
 cp -f ${CONFIG_LIB}/default.xml /usr/share/backgrounds 
 
