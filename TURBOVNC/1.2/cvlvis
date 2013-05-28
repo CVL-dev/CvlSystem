@@ -1,0 +1,10 @@
+#!/bin/sh
+
+CHECK_GPU=""
+
+if [[ ${CHECK_GPU} == "" ]]; then
+    module load mesalib
+else
+    module load virtualgl 
+fi
+

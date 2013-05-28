@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Check XFCE
+XFCE=`cat /etc/X11/xinit/Xclients | grep XFCE`
+
+# Wait 2 seconds to settle down.
+sleep 2
+if [ -z "${XFCE}" ]; then
+    cp -f /usr/local/turbovnc/1.1/etc/Xclients /etc/X11/xinit
+fi
+
+# Wait 5 seconds to start vnc server.
+sleep 5 
+
+USER=$(who am i | sed -e 's/ .*//')
+
+echo "user = .${USER}."
+su -l ${USER} -c "/usr/local/bin/vncserverstart"

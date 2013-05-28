@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/cvl/!svn/ver/349/MasterBuild/trunk/TURBOVNC/1.1
+END
+vncinit.sh
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/cvl/!svn/ver/355/MasterBuild/trunk/TURBOVNC/1.1/vncinit.sh
+END
+cvllogo.jpg
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/cvl/!svn/ver/316/MasterBuild/trunk/TURBOVNC/1.1/cvllogo.jpg
+END
+post
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/cvl/!svn/ver/238/MasterBuild/trunk/TURBOVNC/1.1/post
+END
+Xclients
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/cvl/!svn/ver/238/MasterBuild/trunk/TURBOVNC/1.1/Xclients
+END
+vncsession
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/cvl/!svn/ver/361/MasterBuild/trunk/TURBOVNC/1.1/vncsession
+END
+turbovnc-1.1.tar.gz
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/cvl/!svn/ver/97/MasterBuild/trunk/TURBOVNC/1.1/turbovnc-1.1.tar.gz
+END
+config
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/cvl/!svn/ver/361/MasterBuild/trunk/TURBOVNC/1.1/config
+END
+validate_module.sh
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/cvl/!svn/ver/361/MasterBuild/trunk/TURBOVNC/1.1/validate_module.sh
+END
+desktop
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/cvl/!svn/ver/203/MasterBuild/trunk/TURBOVNC/1.1/desktop
+END
+cvl_desktop.svg
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/cvl/!svn/ver/316/MasterBuild/trunk/TURBOVNC/1.1/cvl_desktop.svg
+END
+xfce-applications.menu
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/cvl/!svn/ver/316/MasterBuild/trunk/TURBOVNC/1.1/xfce-applications.menu
+END
+turbovncserver-auth.conf
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/cvl/!svn/ver/203/MasterBuild/trunk/TURBOVNC/1.1/turbovncserver-auth.conf
+END
+turbovncserver.conf
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/cvl/!svn/ver/296/MasterBuild/trunk/TURBOVNC/1.1/turbovncserver.conf
+END
+check
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/cvl/!svn/ver/361/MasterBuild/trunk/TURBOVNC/1.1/check
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/cvl/!svn/ver/97/MasterBuild/trunk/TURBOVNC/1.1/CMakeLists.txt
+END

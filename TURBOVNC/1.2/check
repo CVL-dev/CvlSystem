@@ -1,0 +1,20 @@
+#!/bin/sh
+
+SOURCE_DIR=$1
+BUILD_DIR=$2
+INSTALL_DIR=$3
+
+cp -f ${SOURCE_DIR}/vncinit.sh ${INSTALL_DIR}/bin
+if [ ! -d "${INSTALL_DIR}/config" ]; then
+    mkdir ${INSTALL_DIR}/config
+fi
+cp -f ${SOURCE_DIR}/Xclients ${INSTALL_DIR}/config
+cp -f ${SOURCE_DIR}/cvl_desktop.svg ${INSTALL_DIR}/config
+cp -f ${SOURCE_DIR}/xstartup.gnome ${INSTALL_DIR}/config
+cp -f ${SOURCE_DIR}/%gconf.xml ${INSTALL_DIR}/config
+cp -f ${SOURCE_DIR}/default.xml ${INSTALL_DIR}/config
+
+# Copy module validation script to package directory.
+if [ ! -f ${INSTALL_DIR}/validate_module.sh ]; then
+    cp ${SOURCE_DIR}/validate_module.sh ${INSTALL_DIR}
+fi

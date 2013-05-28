@@ -1,0 +1,53 @@
+#!/bin/sh
+
+ARG0=`basename $0`
+Geometry="1440x900"
+Depth="24"
+Display="1"
+
+module load libjpeg-turbo
+module load turbovnc
+
+function Usage()
+{
+    echo "Usage: "
+    echo "${ARG0} - Start VNC session using default configuration.
+    echo "${ARG0} --geometry geometry_value --depth depth_value --display display_number - Start VNC session using user configuration"
+    echo "${ARG0} stop - Stop VNC session"
+}
+
+function Stop()
+{
+    vncserver -kill :${Display}
+}
+
+function Start()
+{
+    Stop
+    sleep 1
+    vncserver -geometry ${Geometry} -depth ${Depth} :${Display}
+}
+
+while [ $# -ge 1 ]; do
+    case "$1" in
+        -d|--depth)
+            Depth=$2
+            ;;
+        -g|--geometry)
+            Geometry=$2
+            ;;
+        -h|--help)
+            Usage
+            ;;
+        -n|--number)
+            Display=$2
+            ;;
+        -s|stop)
+            Stop
+            exit 0
+            ;;
+        esac
+    shift
+done
+
+Start
