@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/cvl/!svn/ver/335/MasterBuild/trunk/LIBJPEG-TURBO/1.2.0
+END
+config
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/cvl/!svn/ver/361/MasterBuild/trunk/LIBJPEG-TURBO/1.2.0/config
+END
+libjpeg-turbo-1.2.0.tar.gz
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/cvl/!svn/ver/97/MasterBuild/trunk/LIBJPEG-TURBO/1.2.0/libjpeg-turbo-1.2.0.tar.gz
+END
+validate_module.sh
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/cvl/!svn/ver/361/MasterBuild/trunk/LIBJPEG-TURBO/1.2.0/validate_module.sh
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/cvl/!svn/ver/97/MasterBuild/trunk/LIBJPEG-TURBO/1.2.0/CMakeLists.txt
+END
+check
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/cvl/!svn/ver/361/MasterBuild/trunk/LIBJPEG-TURBO/1.2.0/check
+END
