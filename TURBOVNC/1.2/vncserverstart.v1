@@ -1,7 +1,0 @@
-#!/bin/sh
-
-module load libjpeg-turbo
-module load turbovnc
-vncserver -kill :1
-sleep 1
-vncserver :1
