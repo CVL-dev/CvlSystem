@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# CVL build script to create a source structure.
+#
+echo "Create CVL application build system succeeded"

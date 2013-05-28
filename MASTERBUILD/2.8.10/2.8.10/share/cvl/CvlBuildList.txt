@@ -1,0 +1,6 @@
+#
+# CVL auto build list. Format: <directory> [space] <version> in each line
+# For example:
+# IMAGEJ 1.46
+# POSMINUS 0.2
+#
