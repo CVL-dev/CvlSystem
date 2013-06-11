@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="attached_toplevel_id" mtime="1370586857" schema="/schemas/apps/panel/objects/attached_toplevel_id"/>
+	<entry name="position" mtime="1370587597" schema="/schemas/apps/panel/objects/position" type="int" value="306"/>
+	<entry name="use_menu_path" mtime="1370586857" schema="/schemas/apps/panel/objects/use_menu_path" type="bool" value="true"/>
+	<entry name="action_type" mtime="1370586857" schema="/schemas/apps/panel/objects/action_type"/>
+	<entry name="toplevel_id" mtime="1370586857" schema="/schemas/apps/panel/objects/toplevel_id" type="string">
+		<stringvalue>top_panel</stringvalue>
+	</entry>
+	<entry name="tooltip" mtime="1370586857" schema="/schemas/apps/panel/objects/tooltip" type="string">
+		<stringvalue>Energy Materials Atom Probe Workbench</stringvalue>
+	</entry>
+	<entry name="use_custom_icon" mtime="1370586857" schema="/schemas/apps/panel/objects/use_custom_icon"/>
+	<entry name="object_type" mtime="1370586857" schema="/schemas/apps/panel/objects/object_type" type="string">
+		<stringvalue>menu-object</stringvalue>
+	</entry>
+	<entry name="panel_right_stick" mtime="1370586857" schema="/schemas/apps/panel/objects/panel_right_stick" type="bool" value="false"/>
+	<entry name="locked" mtime="1370586857" schema="/schemas/apps/panel/objects/locked"/>
+	<entry name="custom_icon" mtime="1370586857" schema="/schemas/apps/panel/objects/custom_icon"/>
+	<entry name="bonobo_iid" mtime="1370586857" schema="/schemas/apps/panel/objects/bonobo_iid"/>
+	<entry name="launcher_location" mtime="1370586857" schema="/schemas/apps/panel/objects/launcher_location"/>
+	<entry name="menu_path" mtime="1370586857" schema="/schemas/apps/panel/objects/menu_path" type="string">
+		<stringvalue>applications:/Characterisation Virtual Laboratory/Energy Materials Atom Probe Workbench/</stringvalue>
+	</entry>
+</gconf>

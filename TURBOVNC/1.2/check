@@ -11,8 +11,11 @@ fi
 cp -f ${SOURCE_DIR}/Xclients ${INSTALL_DIR}/config
 cp -f ${SOURCE_DIR}/cvl_desktop.svg ${INSTALL_DIR}/config
 cp -f ${SOURCE_DIR}/xstartup.gnome ${INSTALL_DIR}/config
-cp -f ${SOURCE_DIR}/%gconf.xml ${INSTALL_DIR}/config
+#cp -f ${SOURCE_DIR}/%gconf.xml ${INSTALL_DIR}/config
 cp -f ${SOURCE_DIR}/default.xml ${INSTALL_DIR}/config
+cp -rf ${SOURCE_DIR}/desktop_config ${INSTALL_DIR}/config
+cp -rf ${SOURCE_DIR}/mozilla_config ${INSTALL_DIR}/config
+cp -rf ${SOURCE_DIR}/gnome_config ${INSTALL_DIR}/config
 
 # Copy module validation script to package directory.
 if [ ! -f ${INSTALL_DIR}/validate_module.sh ]; then

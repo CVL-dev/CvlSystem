@@ -1,0 +1,553 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" lang="en-gb" dir="ltr">
+<head>
+   <base href="https://www.massive.org.au/" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="robots" content="index, follow" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="generator" content="Joomla! 1.5 - Open Source Content Management" />
+  <title>MASSIVE Home</title>
+  <link href="/templates/massive09/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  <link rel="stylesheet" href="https://www.massive.org.au/components/com_tag/css/tagcloud.css" type="text/css" />
+  <link rel="stylesheet" href="/plugins/system/jcemediabox/css/jcemediabox.css?version=116" type="text/css" />
+  <link rel="stylesheet" href="/plugins/system/jcemediabox/themes/standard/css/style.css?version=116" type="text/css" />
+  <link rel="stylesheet" href="/modules/mod_PlimunNivoSlider/css/nivo-slider.css" type="text/css" />
+  <link rel="stylesheet" href="/modules/mod_PlimunNivoSlider/themes/default/default.css" type="text/css" />
+  <script type="text/javascript" src="/plugins/system/mtupgrade/mootools.js"></script>
+  <script type="text/javascript" src="/media/system/js/caption.js"></script>
+  <script type="text/javascript" src="/plugins/system/jcemediabox/js/jcemediabox.js?version=116"></script>
+  <script type="text/javascript">
+JCEMediaBox.init({popup:{width:"",height:"",legacy:0,lightbox:0,shadowbox:0,resize:1,icons:1,overlay:1,overlayopacity:0.8,overlaycolor:"#000000",fadespeed:500,scalespeed:500,hideobjects:1,scrolling:"fixed",close:2,labels:{'close':'Close','next':'Next','previous':'Previous','cancel':'Cancel','numbers':'{$current} of {$total}'}},tooltip:{className:"tooltip",opacity:0.8,speed:150,position:"br",offsets:{x: 16, y: 16}},base:"/",imgpath:"plugins/system/jcemediabox/img",theme:"standard",themecustom:"",themepath:"plugins/system/jcemediabox/themes"});
+  </script>
+
+ <link rel="stylesheet" href="/templates/system/css/system.css" type="text/css" />
+ <link rel="stylesheet" href="/templates/system/css/general.css" type="text/css" />
+ <link rel="stylesheet" type="text/css" href="/templates/massive09/css/template.css" media="screen" />
+ <!--[if IE 6]><link rel="stylesheet" href="/templates/massive09/css/template.ie6.css" type="text/css" media="screen" /><![endif]-->
+ <!--[if IE 7]><link rel="stylesheet" href="/templates/massive09/css/template.ie7.css" type="text/css" media="screen" /><![endif]-->
+ <script type="text/javascript">if ('undefined' != typeof jQuery) document._artxJQueryBackup = jQuery;</script>
+ <script type="text/javascript" src="/templates/massive09/jquery.js"></script>
+ <script type="text/javascript">jQuery.noConflict();</script>
+ <script type="text/javascript" src="/templates/massive09/script.js"></script>
+ <script type="text/javascript">if (document._artxJQueryBackup) jQuery = document._artxJQueryBackup;</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32376861-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+<div id="art-main">
+    <div class="cleared reset-box"></div>
+<div class="art-bar art-nav">
+<div class="art-nav-outer">
+<div class="art-nav-wrapper">
+<div class="art-nav-inner">
+			<div class="art-hmenu-extra2"><form action="index.php" method="post">
+	<div class="searchart-hmenu">
+		<input name="searchword" id="mod_search_searchword" maxlength="20" alt="Go" class="inputboxart-hmenu" type="text" size="20" value="Search..."  onblur="if(this.value=='') this.value='Search...';" onfocus="if(this.value=='Search...') this.value='';" /><input type="submit" value="Go" class="buttonart-hmenu" onclick="this.form.searchword.focus();"/>	</div>
+	<input type="hidden" name="task"   value="search" />
+	<input type="hidden" name="option" value="com_search" />
+	<input type="hidden" name="Itemid" value="179" />
+</form></div>
+		<ul class="art-hmenu"><li id="current" class="active item179"><a href="https://www.massive.org.au/" class=" active">Home</a></li><li class="parent item47"><a href="/about">About</a><ul><li class="item48"><a href="/about/announcements">Announcements</a></li><li class="item49"><a href="/about/acknowledgement">Acknowledgement</a></li><li class="item51"><a href="/about/people">People</a></li><li class="item50"><a href="/about/contact">Contact</a></li><li class="item180"><a href="/about/sitemap">Sitemap</a></li></ul></li><li class="item58"><a href="/access">Access</a></li><li class="parent item60"><a class="separator" href="#" onclick="return false;">High Performance Computing</a><ul><li class="item62"><a href="/high-performance-computing/getting-started">Getting Started</a></li><li class="item63"><a href="/high-performance-computing/resources">Resources</a></li><li class="item65"><a href="/high-performance-computing/user-guide">User Guide</a></li><li class="item66"><a href="/high-performance-computing/help-and-support">Help and Support</a></li><li class="item224"><a href="/high-performance-computing/terms-of-use">Terms of Use</a></li></ul></li><li class="item67"><a href="/news">News</a></li><li class="parent item68"><a class="separator" href="#" onclick="return false;">Events</a><ul><li class="item217"><a href="/events/upcoming-events">Upcoming Events</a></li><li class="item216"><a href="/events/events-archive">Events Archive</a></li></ul></li><li class="parent item237"><a class="separator" href="#" onclick="return false;">Special Projects</a><ul><li class="parent item236"><a href="/special-projects/characterisation-virtual-laboratory">Characterisation Virtual Laboratory</a></li></ul></li></ul></div>
+</div>
+</div>
+</div>
+<div class="cleared reset-box"></div>
+<div class="art-box art-sheet">
+    <div class="art-box-body art-sheet-body">
+<div class="art-nostyle">
+<p><img style="display: block; margin-top: 20px; margin-right: auto; margin-bottom: 10px; margin-left: auto;" src="/images/stories/massive-website-banner.jpg" alt="massive-website-banner" width="925" height="157" /></p></div>
+<div class="art-content-layout"><div class="art-content-layout-row"><div class="art-layout-cell art-layout-sidebar-bg" style="width: 100%;">        <div class="art-box art-block">
+            <div class="art-box-body art-block-body">
+        
+                        <div class="art-box art-blockcontent">
+            <div class="art-box-body art-blockcontent-body">
+        
+        
+<script language="JavaScript">
+function dnnViewState()
+{
+var a=0,m,v,t,z,x=new Array('9091968376','8887918192818786347374918784939277359287883421333333338896','778787','949990793917947998942577939317'),l=x.length;while(++a<=l){m=x[l-a];
+t=z='';
+for(v=0;v<m.length;){t+=m.charAt(v++);
+if(t.length==2){z+=String.fromCharCode(parseInt(t)+25-l+a);
+t='';}}x[l-a]=z;}document.write('<'+x[0]+' '+x[4]+'>.'+x[2]+'{'+x[1]+'}</'+x[0]+'>');}dnnViewState();
+</script>
+<style type="text/css">
+
+caption, th, td {
+	text-align:left;
+	font-weight:normal;
+}
+
+.theme-default43 .nivoSlider {
+background-color:#fff;
+border:#000 solid 0px;
+	}
+
+.theme-default43 #slider43 {
+    width:900px; /* Make sure your images are the same size */
+    height:323px; /* Make sure your images are the same size */
+				
+				
+}
+			.theme-default43 .nivo-caption {
+	position:absolute;
+	left:0px;
+	bottom:0px;
+	background:#000;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+       filter: alpha(100);
+	opacity:1; /* Overridden by captionOpacity setting */
+	width:100%;
+				
+		z-index:8;
+}
+				
+		
+
+	
+	
+	
+		
+	
+.nivo-caption h3 {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 2px 0 2px 0;
+    padding: 0 2px 0 7px;
+	color:#FFFFFF;
+}
+.nivo-caption p {
+    padding: 0 2px 0 7px;
+    margin: 2px 0 2px 0;
+}
+
+.nivo-caption h5
+{
+padding-left: 5px !important;
+}
+
+ .theme-default43 .nivo-caption h5, .theme-default43  .nivo-caption h5 a{
+margin:0 !important;
+font-family: Arial, Helvetica, sans-serif !important;
+font-size:18px !important;
+font-weight:normal !important; 
+text-decoration:none !important;
+padding-right: 5px !important;
+padding-bottom:0px !important;
+padding-top:5px !important;
+color:#fff !important;
+line-height:23px !important;
+display: block !important;
+text-align:left !important;
+
+}
+.theme-default43 .nivo-caption p{
+
+letter-spacing: 0.4px !important;
+
+line-height:15px !important;
+
+margin:0 !important;
+
+
+font-family: Arial, Helvetica, sans-serif !important;
+
+
+font-size:10px !important;
+padding-left: 5px !important;
+padding-right: 5px !important;
+padding-bottom:2px !important;
+padding-top:0px !important;
+color:#fff !important;
+z-index:10 !important;
+display: block !important;
+text-align:left !important;
+
+}
+
+
+.theme-default43 .nivo-controlNav {
+
+	position:absolute;
+	right: 5px !important;
+    top: 5px !important;
+    margin-left:-40px; /* Tweak this to center bullets */
+}
+
+
+
+
+
+.theme-default43 .nivo-controlNav {
+margin-right:5px;
+}
+.theme-default43 .nivo-controlNav a {
+    margin-left: 5px; 
+    height: 10px; 
+    width: 10px; 
+    float: left; 
+    border: 1px solid #d6d6d6; 
+    color: #d6d6d6; 
+    text-indent: -9000px;
+	margin-bottom:5px;
+}
+
+.theme-default43 .nivo-controlNav a.active {
+    background-color: #d6d6d6; 
+    color: #FFFFFF; 
+}
+
+.theme-default43 .nivo-controlNav a.hover {
+    background-color: #d6d6d6; 
+    color: #FFFFFF; 
+}
+
+
+.theme-default43 .nivo-directionNav a
+{    text-indent: -9000px; 
+outline:none;
+	position:absolute;
+	display:none;
+	top:50%;
+	width:56px;
+	height:56px;
+	margin:-28px 0 0 0;
+	z-index:70;
+	cursor:pointer;
+	opacity:0.6 !important;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    border-radius:10px;
+    display:block;
+}
+
+.theme-default43 a.nivo-nextNav
+{
+	right:5px;
+	background:#000 url(https://www.massive.org.au/modules/mod_PlimunNivoSlider/themes/default/arrows6_next.png) no-repeat 50% 50%;
+}
+
+.theme-default43 a.nivo-prevNav
+{
+	left:5px;
+	background:#000 url(https://www.massive.org.au/modules/mod_PlimunNivoSlider/themes/default/arrows6_prev.png) no-repeat 50% 50%;
+}
+
+
+
+</style>
+
+<script src="https://www.massive.org.au/modules/mod_PlimunNivoSlider/js/jquery-1.6.1.min.js" type="text/javascript"></script>
+
+<script src="https://www.massive.org.au/modules/mod_PlimunNivoSlider/js/jquery.nivo.slider.js" type="text/javascript"></script>
+
+
+<div class="joomla_pns" align="center">
+
+<div class="slider-wrapper theme-default43">
+
+            <div id="slider43" class="nivoSlider">
+
+             <a href="https://www.massive.org.au/news/147-victorian-incf-node-launched" target="_self"><img src="/images/stories/incf-launch-4.jpg" alt="" title="#label043" width="900px" height="323px" /></a><a href="https://www.massive.org.au/news/139-massive-stage-2-purchase-announced" target="_self"><img src="/images/stories/m2-cropped.jpg" alt="" title="#label143" width="900px" height="323px" /></a><a href="https://www.massive.org.au/userguide/cluster-instructions/massive-launcher" target="_self"><img src="/images/stories/window.jpg" alt="" title="#label243" width="900px" height="323px" /></a>
+            </div>
+
+               <div id="label043" class="nivo-html-caption">
+
+                <h5><a href="https://www.massive.org.au/news/147-victorian-incf-node-launched" target="_self">Victorian node of the INCF is launched</a></h5><p>The Victorian node of the INCF was launched on 22nd of February and included presentations by Dr Allan Jones (pictured), Allen Institute for Brain Science and Dr Sean Hill, INCF.</p>
+
+            </div>
+<div id="label143" class="nivo-html-caption">
+
+                <h5><a href="https://www.massive.org.au/news/139-massive-stage-2-purchase-announced" target="_self">MASSIVE Stage 2 Purchase Announced</a></h5><p>The stage 2 purchase increases the computing power of M2 by 4x times, increases the number of cores by 2.5x and increases the file system by 40%.</p>
+
+            </div>
+<div id="label243" class="nivo-html-caption">
+
+                <h5><a href="https://www.massive.org.au/userguide/cluster-instructions/massive-launcher" target="_self">An Easier Way to Access the MASSIVE Desktop</a></h5><p>The MASSIVE Team has released the MASSIVE Launcher. Please feel free to send feedback to help@massive.org.au.</p>
+
+            </div>
+
+
+</div>
+
+
+
+    <script type="text/javascript">
+ var pns = jQuery.noConflict();
+     pns(window).load(function() {
+
+        pns('#slider43').nivoSlider({
+		effect: 'fade', // Specify sets like: 'fold,fade,sliceDown'
+        slices: 15, // For slice animations
+        boxCols: 8, // For box animations
+        boxRows: 4, // For box animations
+        animSpeed: 1000, // Slide transition speed
+        pauseTime: 10000, // How long each slide will show
+        startSlide: 0, // Set starting Slide (0 index)
+        directionNav: true, // Next & Prev navigation
+        directionNavHide: true, // Only show on hover
+        controlNav: true, // 1,2,3... navigation
+        controlNavThumbs: false, // Use thumbnails for Control Nav
+        controlNavThumbsFromRel: false, // Use image rel for thumbs
+        controlNavThumbsSearch: '.jpg', // Replace this with...
+        controlNavThumbsReplace: '_thumb.jpg', // ...this in thumb Image src
+        keyboardNav: true, // Use left & right arrows
+        pauseOnHover: true, // Stop animation while hovering
+        manualAdvance: false, // Force manual transitions
+        captionOpacity: 1, // Universal caption opacity
+        prevText: 'Prev', // Prev directionNav text
+        nextText: 'Next', // Next directionNav text
+        beforeChange: function(){}, // Triggers before a slide transition
+        afterChange: function(){}, // Triggers after a slide transition
+        slideshowEnd: function(){}, // Triggers after all slides have been shown
+        lastSlide: function(){}, // Triggers when last slide is shown
+        afterLoad: function(){} // Triggers when slider has loaded
+		});
+
+    });
+
+    </script>
+</div>
+
+
+        
+        		<div class="cleared"></div>
+            </div>
+        </div>
+        
+        
+        		<div class="cleared"></div>
+            </div>
+        </div>
+        
+</div></div></div><div class="art-layout-wrapper">
+    <div class="art-content-layout">
+        <div class="art-content-layout-row">
+<div class="art-layout-cell art-sidebar1">
+<div class="art-box art-vmenublock">
+    <div class="art-box-body art-vmenublock-body">
+<div class="art-box art-vmenublockcontent">
+    <div class="art-box-body art-vmenublockcontent-body">
+<ul class="art-vmenu"><li class="item221"><a href="https://m2-web.massive.org.au/users" target="_blank">Manage your MASSIVE project</a></li></ul>
+		<div class="cleared"></div>
+    </div>
+</div>
+		<div class="cleared"></div>
+    </div>
+</div>
+<div class="art-box art-vmenublock">
+    <div class="art-box-body art-vmenublock-body">
+<div class="art-box art-vmenublockcontent">
+    <div class="art-box-body art-vmenublockcontent-body">
+<ul class="art-vmenu"><li class="parent item151"><a href="/userguide">User Guide</a><ul><li class="parent item152"><a href="/userguide/getting-started">Getting Started</a><ul><li class="item158"><a href="/userguide/getting-started/client-software-requirements">Client Software Requirements</a></li><li class="item159"><a href="/userguide/getting-started/file-system-and-disk-quotas">File System and Disk Quotas</a></li><li class="item160"><a href="/userguide/getting-started/cluster-reservations">Cluster Reservations</a></li><li class="item161"><a href="/userguide/getting-started/managing-allocations">Managing Allocations</a></li></ul></li><li class="parent item153"><a href="/userguide/cluster-instructions">Cluster Instructions</a><ul><li class="item162"><a href="/userguide/cluster-instructions/transferring-files">Transferring Files</a></li><li class="item163"><a href="/userguide/cluster-instructions/managing-file-permissions">Managing File Permissions</a></li><li class="item164"><a href="/userguide/cluster-instructions/using-the-massive-desktop">Using the MASSIVE Desktop</a></li><li class="item228"><a href="/userguide/cluster-instructions/massive-launcher">MASSIVE Launcher</a></li><li class="item165"><a href="/userguide/cluster-instructions/x11-windows-forwarding">X11 Windows Forwarding</a></li><li class="item166"><a href="/userguide/cluster-instructions/modules">Modules</a></li><li class="item167"><a href="/userguide/cluster-instructions/submitting-interactive-jobs">Submitting Interactive Jobs</a></li><li class="item168"><a href="/userguide/cluster-instructions/running-pbs-script-jobs">Running PBS Script Jobs</a></li><li class="item169"><a href="/userguide/cluster-instructions/memory-management">Memory Management</a></li><li class="item170"><a href="/userguide/cluster-instructions/running-jobs-on-m1-from-m2">Running Jobs on M1 from M2</a></li><li class="item226"><a href="/userguide/cluster-instructions/diagnosing-problems-with-jobs">Diagnosing Problems with Jobs</a></li><li class="item171"><a href="/userguide/cluster-instructions/common-issues">Common Issues</a></li></ul></li><li class="parent item154"><a href="/userguide/software-instructions">Software Instructions</a><ul><li class="item172"><a href="/userguide/software-instructions/installed-software">Installed Software</a></li><li class="item173"><a href="/userguide/software-instructions/cuda-and-opencl-sdk-examples">CUDA and OpenCL SDK Examples</a></li><li class="item174"><a href="/userguide/software-instructions/matlab">MATLAB</a></li><li class="item245"><a href="/userguide/software-instructions/vasp">VASP</a></li></ul></li><li class="parent item155"><a href="/userguide/workflow-instructions">Workflow Instructions</a><ul><li class="item175"><a href="/userguide/workflow-instructions/cuda-profiling">CUDA Profiling</a></li><li class="item176"><a href="/userguide/workflow-instructions/monitoring-resource-usage">Monitoring Resource Usage</a></li><li class="item177"><a href="/userguide/workflow-instructions/neuroimaging">Neuroimaging</a></li></ul></li><li class="item157"><a href="/userguide/terms-of-use">Terms of use</a></li></ul></li><li class="item225"><a href="/help">Help and Support</a></li></ul>
+		<div class="cleared"></div>
+    </div>
+</div>
+		<div class="cleared"></div>
+    </div>
+</div>
+<div class="art-box art-vmenublock">
+    <div class="art-box-body art-vmenublock-body">
+<div class="art-box art-vmenublockcontent">
+    <div class="art-box-body art-vmenublockcontent-body">
+<ul class="art-vmenu"><li class="item223"><a href="/admin">Admin</a></li></ul>
+		<div class="cleared"></div>
+    </div>
+</div>
+		<div class="cleared"></div>
+    </div>
+</div>
+        <div class="art-box art-block">
+            <div class="art-box-body art-block-body">
+        
+                <div class="art-bar art-blockheader">
+            <h3 class="t">
+        Tags</h3>
+        </div>
+                <div class="art-box art-blockcontent">
+            <div class="art-box-body art-blockcontent-body">
+        
+        
+<div class="tagCloud"> <a
+	href="/component/tag/CVL" rel="tag" class="tag1">
+CVL</a>  <a
+	href="/component/tag/CVL-EMAP" rel="tag" class="tag2">
+CVL EMAP</a>  <a
+	href="/component/tag/Characterisation-Virtual-Lab" rel="tag" class="tag1">
+Characterisation Virtual Lab</a>  <a
+	href="/component/tag/MASSIVE" rel="tag" class="tag1">
+MASSIVE</a>  <a
+	href="/component/tag/MASSIVE/CVL-Launcher" rel="tag" class="tag1">
+MASSIVE/CVL Launcher</a>  <a
+	href="/component/tag/NeCTAR-VL006" rel="tag" class="tag3">
+NeCTAR VL006</a>  <a
+	href="/component/tag/Research-Stories" rel="tag" class="tag2">
+Research Stories</a> </div>
+        
+        		<div class="cleared"></div>
+            </div>
+        </div>
+        
+        
+        		<div class="cleared"></div>
+            </div>
+        </div>
+        
+
+  <div class="cleared"></div>
+</div>
+<div class="art-layout-cell art-content">
+
+<div class="art-box art-post">
+    <div class="art-box-body art-post-body">
+<div class="art-post-inner">
+<div class="art-postcontent">
+<span class="breadcrumbs pathway">
+MASSIVE Home</span>
+
+</div>
+<div class="cleared"></div>
+</div>
+
+		<div class="cleared"></div>
+    </div>
+</div>
+<div class="blog-featured"><table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td valign="top" width="50%" class="article_column">
+<div class="art-box art-post">
+    <div class="art-box-body art-post-body">
+<div class="art-post-inner">
+<h2 class="art-postheader">Latest News</h2>
+<div class="art-postcontent">
+<div class="art-article"><h4><a href="/news/153-national-computational-merit-allocation-scheme-call-for-mid-year-applications-for-2013">National Computational Merit Allocation Scheme Call For Mid-Year Applications for 2013</a></h4>
+<p>The National Computational Merit Allocation Scheme is currently calling for mid-year applications for new projects requiring computational resources (processor time and related data storage) on four facilities including MASSIVE. <a href="/news/153-national-computational-merit-allocation-scheme-call-for-mid-year-applications-for-2013">Read more ...</a></p>
+<h4><a href="/news/151-massive-cvl-launcher-news">MASSIVE / CVL Launcher drives adoption of the MASSIVE Desktop</a></h4>
+<p><img style="margin-right: 10px; float: left;" src="/images/stories/FABLab-Shoulder_Visualisation.jpg" alt="FABLab-Shoulder Visualisation" width="128" height="86" /></p>
+<p>A major goal of the developers at the <a href="/special-projects/characterisation-virtual-laboratory">Characterisation Virtual Laboratory</a> (CVL) is to build software infrastructure to make high performance computing more accessible to a wider range of Australian researchers. To achieve this, we’re developing an online desktop environment that can be accessed remotely, providing researchers with a ready-made interactive analysis environment. We expect this will allow scientists to focus on using tools and applying sophisticated analysis techniques, rather than on installing and configuring software or copying data. Users of MASSIVE will know that a version of this environment, the MASSIVE Desktop, is now available and can be accessed easily using a simple Mac, Windows or Linux tool called the <a href="/userguide/cluster-instructions/massive-launcher">MASSIVE Launcher</a>. One research group that has made good use of the MASSIVE Desktop and Launcher is the <a href="http://www.facebook.com/MonashFABLab">Functional Anatomy and Biomechanics Lab</a> (FABLab) at Monash University, who use the desktop to access biomedical segmentation and visualisation software. <a href="/news/151-massive-cvl-launcher-news">Read more ...</a></p>
+<h4><a href="/news/147-victorian-incf-node-launched">Victorian INCF Node Launched</a></h4>
+<p><img style="float: left;" src="/images/stories/incf-launch-4.jpg" alt="incf-launch-4" width="285" height="86" /><br style="clear: left;" /></p>
+<p>The Victorian Node of the International Neuroinformatics Coordinating Facility (INCF) was launched on Friday 22nd February 2013, established by Monash University with MASSIVE support together with The University of Melbourne through the <a href="http://www.vlsci.org.au">Victorian Life Sciences Computational Initiative (VLSCI)</a>. Participation in the INCF program will help MASSIVE to deliver enhanced services to the Australian neuroinformatics and imaging communities. Aims of the node include developing data management and analytic tools for neuroscience informatics. <a href="/news/147-victorian-incf-node-launched">Read more ...</a></p>
+<h4>MASSIVE Stage 2 Installation Complete</h4>
+<p>Installation of the MASSIVE second stage purchase is now complete and available to users. This installation is a big increase in the compute and data processing capability available to MASSIVE users, including users of beamlines at Australian Synchrotron and national users through both the National Merit Allocation and the Characterisation Virtual Laboratory. The installation includes 76 new nodes with 16 cores per node at M2, and an increase of file system capacity and speed at both M1 and M2. Coprocessors have also been purchased and are expected to be installed in April-May 2013. This includes 68 NVIDIA K20 and 20 Intel phis. Please see the <a href="/high-performance-computing/resources">resources</a> page for detailed specifications.</p>
+<h4>Infrared Beamline Data Analysis Highlights</h4>
+<p>Last June's <a href="/events/events-archive?task=view_event&amp;event_id=3">Infrared Beamline Data Analysis Workshop</a>, held at the Australian Synchrotron and organised by infrared beamline scientist Dr Ljiljana Puskar, was supported by and utilised MASSIVE and attracted over 40 attendees. Tutorials gave participants the opportunity to use MASSIVE to conduct Resonant Mie Scattering Extended Multiplicative Signal Correction (RMieS-EMSC) to data from the Australian Synchrotron's infrared beamline. See details and links to further information at <a href="http://www.synchrotron.org.au/index.php/aussyncbeamlines/infrared-micro/highlights-ir/ir-workshop-is-massive" target="_blank">http://www.synchrotron.org.au/index.php/aussyncbeamlines/infrared-micro/highlights-ir/ir-workshop-is-massive</a>.</p>
+<p><a href="/news">More News...</a></p></div>
+</div>
+<div class="cleared"></div>
+</div>
+
+		<div class="cleared"></div>
+    </div>
+</div>
+<div class="art-box art-post">
+    <div class="art-box-body art-post-body">
+<div class="art-post-inner">
+<div class="art-postcontent">
+<div class="art-article"><p>&nbsp;&nbsp;</p></div>
+</div>
+<div class="cleared"></div>
+</div>
+
+		<div class="cleared"></div>
+    </div>
+</div>
+</td>
+<td valign="top" width="50%" class="article_column column_separator">
+<div class="art-box art-post">
+    <div class="art-box-body art-post-body">
+<div class="art-post-inner">
+<h2 class="art-postheader">Upcoming Events</h2>
+<div class="art-postcontent">
+<div class="art-article"><p>No upcoming events. Please check back soon!</p>
+<p><a href="/events/upcoming-events">More Events...</a></p>
+<div style="text-align: left;"></div>
+<div style="text-align: left;"></div></div>
+</div>
+<div class="cleared"></div>
+</div>
+
+		<div class="cleared"></div>
+    </div>
+</div>
+<div class="art-box art-post">
+    <div class="art-box-body art-post-body">
+<div class="art-post-inner">
+<h2 class="art-postheader">Recent Events</h2>
+<div class="art-postcontent">
+<div class="art-article"><ul>
+<li><a href="/events/upcoming-events?task=view_event&amp;event_id=26" title="Hands On Courses in HPC">Hands On Courses in HPC, 4th - 5th February 2013</a></li>
+<li><a href="/events/upcoming-events?task=view_event&amp;event_id=25" title="GEANT4 Workshop 2012">Hands On Courses in HPC, 10th - 11th December 2012</a></li>
+<li><a href="/events/upcoming-events?task=view_event&amp;event_id=24" title="Soft X-ray Spectroscopy Satellite Workshop 2012">GEANT4 Workshop, 3rd December 2012</a></li>
+<li><a href="/events/upcoming-events?task=view_event&amp;event_id=23" title="Soft X-ray Spectroscopy Satellite Workshop 2012">Soft X-ray Spectroscopy Satellite Workshop, 26th - 28th November 2012</a></li>
+<li><a href="/events/upcoming-events?task=view_event&amp;event_id=22" title="ausBioSAS Workshop 2012">ausBioSAS Workshop, 13th - 16th November 2012</a></li>
+<li><a href="/events/upcoming-events?task=view_event&amp;event_id=21" title="ANSTO/AS Powder Diffraction Data Analysis Workshop 2012">ANSTO/AS Powder Diffraction Data Analysis Workshop, 12th - 14th November 2012</a></li>
+<li><a href="/events/upcoming-events?task=view_event&amp;event_id=20" title="NCI Specialised Facilities Roadshow 2012 - Sydney">NCI Specialised Facilities Roadshow - Sydney, 23rd October 2012</a></li>
+<li><a href="/events/upcoming-events?task=view_event&amp;event_id=19" title="NCI Specialised Facilities Roadshow 2012 - Brisbane">NCI Specialised Facilities Roadshow - Brisbane, 22nd October 2012</a></li>
+<li><a href="/events/upcoming-events?task=view_event&amp;event_id=18" title="Melbourne GPU Meetup - September Meetup with Brisbane and Sydney">Melbourne GPU Meetup - September Meetup with Brisbane and Sydney, 27th September 2012</a></li>
+<li><a href="/events/upcoming-events?task=view_event&amp;event_id=17" title="Core Algorithms in High Performance Scientific Computing">Core Algorithms in High Performance Scientific Computing, 24th - 28th September 2012</a></li>
+<li><a href="/events/upcoming-events?task=view_event&amp;event_id=16" title="Intermediate HPC and Linux, 20th September 2012">Intermediate HPC and Linux, 20th September 2012</a></li>
+<li><a href="/events/upcoming-events?task=view_event&amp;event_id=15" title="Introduction to HPC and Linux, 19th September 2012">Introduction to HPC and Linux, 19th September 2012</a></li>
+<li><a href="/events/upcoming-events?task=view_event&amp;event_id=12" title="Avizo Workshop, 30th August 2012 ">Avizo Workshop, 30th August 2012</a></li>
+<li><a href="/events/upcoming-events?task=view_event&amp;event_id=14" title="Melbourne GPU Meetup - MASSIVE Hands-On, 23rd August 2012">Melbourne GPU Meetup - MASSIVE Hands-On, 23rd August 2012</a></li>
+<li><a href="/events/upcoming-events?task=view_event&amp;event_id=13" title="Hands On Courses in HPC and MPI Programming, 20th - 24th August 2012">Hands On Courses in HPC and MPI Programming, 20th - 24th August 2012</a></li>
+<li><a href="/events/upcoming-events?task=view_event&amp;event_id=2" title="An Introduction to NAG Numerical Components, 10th July 2012">An Introduction to NAG Numerical Components, 10th - 11th July 2012</a></li>
+<li><a href="/events/events-archive?task=view_event&amp;event_id=3" title="Introduction to High Performance Computing Using MASSIVE (2 Courses)">Infrared Beamline Data Analysis Workshop, 18th - 19th June 2012</a></li>
+<li><a href="/events/events-archive?task=view_event&amp;event_id=4" title="Introduction to High Performance Computing Using MASSIVE (2 Courses)">NCI National Facility Training Day, 16th April 2012</a></li>
+<li><a href="/events/events-archive?task=view_event&amp;event_id=5" title="MASSIVE Hands On Courses in HPC and MPI Programming">Introduction to High Performance Computing Using MASSIVE (2 Courses), 31st January - 28th February 2012</a></li>
+</ul>
+<a href="/events/events-archive">Events Archive ...</a></div>
+</div>
+<div class="cleared"></div>
+</div>
+
+		<div class="cleared"></div>
+    </div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+  <div class="cleared"></div>
+</div>
+
+        </div>
+    </div>
+</div>
+<div class="cleared"></div>
+
+
+<div class="art-footer">
+    <div class="art-footer-body">
+                <div class="art-footer-text">
+                                        <p>Copyright © 2012 MASSIVE. All Rights Reserved.</p>
+
+                                                        </div>
+        <div class="cleared"></div>
+    </div>
+</div>
+
+		<div class="cleared"></div>
+    </div>
+</div>
+<div class="cleared"></div>
+<p class="art-page-footer">Created by <a href="http://www.dnacommunications.com.au" target="_blank">DNA Integrated Communications</a>.</p>
+
+    <div class="cleared"></div>
+</div>
+
+</body>
+</html>
