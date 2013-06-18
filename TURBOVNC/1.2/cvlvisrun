@@ -12,7 +12,6 @@ if [ $# -lt 1 ]; then
     Usage
 fi
 
-APPLICATION=$1
 CHECK_GPU=""
 COMMAND=""
 
@@ -23,4 +22,4 @@ else
     COMMAND=$(which vglrun)
 fi
 
-${COMMAND} ${APPLICATION}
+${COMMAND} "$@"

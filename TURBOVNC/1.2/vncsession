@@ -7,8 +7,6 @@ ARG0=`basename $0`
 Geometry="1440x900"
 Depth="24"
 DefaultDisplay="1"
-#Display="${DefaultDisplay}"
-#VncServer="tigervnc"
 VncServer="turbovnc"
 MODULE=`echo $MODULEPATH`
 
@@ -21,7 +19,6 @@ if [ ! -d "/usr/local/tigervnc" ]; then
 fi
 
 module load libjpeg-turbo
-#module load turbovnc
 
 function Usage()
 {
@@ -52,11 +49,6 @@ function SetVnc()
     if [ "${vnc}" == "tigervnc" ]; then 
         Log "Error: tigervnc is not supported, switch to turbovnc"
         VncServer=turbovnc
-#        if [ -d "/usr/local/tigervnc" ]; then
-#            VncServer=${vnc}
-#        else
-#            Log "Error: tigervnc is not installed"
-#        fi
     elif [ "${vnc}" == "turbovnc" ]; then
         VncServer=${vnc}
     else
@@ -125,9 +117,9 @@ function Stop()
 function Start()
 {
     if [ -z "${Display}" ]; then
-        vncserver -geometry ${Geometry} -depth ${Depth}
+        vncserver -geometry ${Geometry} -depth ${Depth} -otp
     else
-        vncserver -geometry ${Geometry} -depth ${Depth} :${Display}
+        vncserver -geometry ${Geometry} -depth ${Depth} :${Display} -otp
     fi
 }
 
@@ -140,26 +132,35 @@ function Initialisation()
 
     if [ ! -d ${HOME}/.vnc ]; then
         mkdir ${HOME}/.vnc
+
+        if [ ! -d ${HOME}/.config ]; then
+            cp -r ${CONFIG_LIB}/desktop_config ${HOME}/.config
+        fi
+        
+        if [ ! -d ${HOME}/.mozilla ]; then
+            cp -r ${CONFIG_LIB}/mozilla_config ${HOME}/.mozilla
+        fi
+    
+        if [ ! -f ${HOME}/.vnc/xstartup ]; then
+            cp ${CONFIG_LIB}/xstartup.gnome ${HOME}/.vnc/xstartup.turbovnc
+        fi
+    
+        if [ ! -f ${HOME}/.gconf ]; then
+            cp -r ${CONFIG_LIB}/gnome_config ${HOME}/.gconf
+        fi
+
+        GET_AGENT=$(cat $HOME/.bashrc | grep get_best_agent)
+        if [ -z "${GET_AGENT}" ]; then
+            echo ". get_best_agent" >> $HOME/.bashrc
+        fi
     fi 
-
-    if [ ! -f ${HOME}/.vnc/xstartup ]; then
-        cp ${CONFIG_LIB}/xstartup.gnome ${HOME}/.vnc/xstartup.turbovnc
-    fi
-
-    if [ ! -d ${HOME}/.gconf/apps ]; then
-        mkdir -p ${HOME}/.gconf/apps
-    fi
-
-    if [ ! -f ${HOME}/.gconf/apps/%gconf.xml ]; then
-        cp ${CONFIG_LIB}/%gconf.xml ${HOME}/.gconf/apps
-    fi
-
 
     if [ ${VncServer}="tigervnc" ]; then
         Log "TigerVNC is not supported"
+        VncServer="turbovnc"
     fi
     
-    module unload turbovnc
+    module unload ${VncServer} 
 }
 
 while [ $# -ge 1 ]; do
