@@ -10,7 +10,7 @@ ModuleFileDescription="TurboVNC is a free remote control software package develo
 #
 # Package release number.
 #
-PACKAGE_RELEASE="4.0.8"
+PACKAGE_RELEASE="4.1.7"
 
 #
 # For source package, set it "ON", for binary package, set it "OFF".
@@ -57,6 +57,7 @@ cvlvis:/usr/local/bin;
 cvlvisrun:/usr/local/bin;
 testglx.sh:/usr/local/bin;
 get_best_agent:/usr/local/bin;
+cvllog.sh:/usr/local/bin;
 vncsession:/usr/local/bin"
 
 #
