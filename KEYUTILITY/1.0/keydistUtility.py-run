@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# CVL run script for GUI applications.
+#
+
+VIS=$(which cvlvisrun)
+module load keyutility/1.0
+. /usr/local/bin/get_best_agent
+${VIS} keydistUtility.py
