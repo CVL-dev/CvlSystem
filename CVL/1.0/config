@@ -10,7 +10,7 @@ ModuleFileDescription="Application"
 #
 # Package release number.
 #
-PACKAGE_RELEASE="4.0.2"
+PACKAGE_RELEASE="4.0.7"
 
 #
 # For source package, set it "ON", for binary package, set it "OFF".
@@ -98,7 +98,7 @@ function PatchCommand()
 # - neuroimaging
 # - energy-materials
 #
-MenuLayout="cvl:toolbox"
+MenuLayout="cvl:system"
 
 #
 # Set directory menu in format <comment>:<icon>. If the icon file is from
@@ -170,7 +170,7 @@ AutoDependencyCheck="true"
 # should be available in the source location. Edit following variable for 
 # file name (no path) and only one script can be defined.
 #
-# PostInstallScript=
+#PostInstallScript="post"
 
 case "$1" in
     -a|--description)
