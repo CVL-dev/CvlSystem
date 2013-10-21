@@ -16,6 +16,7 @@ cp -f ${SOURCE_DIR}/default.xml ${INSTALL_DIR}/config
 cp -rf ${SOURCE_DIR}/desktop_config ${INSTALL_DIR}/config
 cp -rf ${SOURCE_DIR}/mozilla_config ${INSTALL_DIR}/config
 cp -rf ${SOURCE_DIR}/gnome_config ${INSTALL_DIR}/config
+cp -rf ${SOURCE_DIR}/huygens_config ${INSTALL_DIR}/config
 cp -f ${SOURCE_DIR}/.gtkrc-2.0 ${INSTALL_DIR}/config
 
 # Copy module validation script to package directory.
