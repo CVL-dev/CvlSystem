@@ -3,10 +3,10 @@
 	<entry name="nautilus-window-scroll-position" mtime="1373242555" type="string">
 		<stringvalue>x-nautilus-desktop:///home</stringvalue>
 	</entry>
-	<entry name="nautilus-icon-view-layout-timestamp" mtime="1382336169" type="string">
-		<stringvalue>1382336169</stringvalue>
+	<entry name="nautilus-icon-view-layout-timestamp" mtime="1382356378" type="string">
+		<stringvalue>1382356378</stringvalue>
 	</entry>
-	<entry name="nautilus-icon-view-keep-aligned" mtime="1382336168" type="string">
+	<entry name="nautilus-icon-view-keep-aligned" mtime="1382356377" type="string">
 		<stringvalue>true</stringvalue>
 	</entry>
 </gconf>

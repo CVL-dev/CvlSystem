@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <gconf>
-	<entry name="applet_id_list" mtime="1382335918" type="list" ltype="string">
-		<li type="string">
-			<stringvalue>gnote</stringvalue>
-		</li>
+	<entry name="applet_id_list" mtime="1382355117" type="list" ltype="string">
+		<!--<li type="string">-->
+			<!--<stringvalue>gnote</stringvalue>-->
+		<!--</li>-->
 		<li type="string">
 			<stringvalue>clock</stringvalue>
 		</li>
@@ -23,7 +23,7 @@
 			<stringvalue>fast_user_switch_applet</stringvalue>
 		</li>
 	</entry>
-	<entry name="toplevel_id_list" mtime="1382335918" type="list" ltype="string">
+	<entry name="toplevel_id_list" mtime="1382355117" type="list" ltype="string">
 		<li type="string">
 			<stringvalue>top_panel</stringvalue>
 		</li>
@@ -31,7 +31,7 @@
 			<stringvalue>bottom_panel</stringvalue>
 		</li>
 	</entry>
-	<entry name="object_id_list" mtime="1382335918" type="list" ltype="string">
+	<entry name="object_id_list" mtime="1382355117" type="list" ltype="string">
 		<li type="string">
 			<stringvalue>menu_bar</stringvalue>
 		</li>
@@ -52,6 +52,9 @@
 		</li>
 		<li type="string">
 			<stringvalue>object_4</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>object_5</stringvalue>
 		</li>
 	</entry>
 </gconf>
