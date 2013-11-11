@@ -7,9 +7,9 @@ ARG0=`basename $0`
 
 # Change it according to the release number in config file, format as 
 # <version number><release number>"
-RELEASE_VERSION="12418"
-MAJOR_UPDATE=$((12416))
-MINOR_UPDATE=$((12416))
+RELEASE_VERSION="124112"
+MAJOR_UPDATE=$((12419))
+MINOR_UPDATE=$((124111))
 
 USERHOME="$HOME"
 VNCHOME="${USERHOME}/.vnc"
