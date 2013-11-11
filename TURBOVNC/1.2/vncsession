@@ -7,7 +7,7 @@ ARG0=`basename $0`
 
 # Change it according to the release number in config file, format as 
 # <version number><release number>"
-RELEASE_VERSION="12417"
+RELEASE_VERSION="12418"
 MAJOR_UPDATE=$((12416))
 MINOR_UPDATE=$((12416))
 
@@ -161,14 +161,135 @@ function Start()
     Log ${message}
 }
 
+function SelectDesktopConfig()
+{
+    Log "Start of selecting GNOME configuration"
+    if [ ! -h ${HOME}/.gconf ]; then
+        Log "${HOME}/.gconf is not a symbolic link."
+        if [ ! -e ${HOME}/.gconf ]; then
+            Log "${HOME}/.gconf doesn't exist."
+        fi
+        if [ -d ${HOME}/.gconf ]; then
+            Log "${HOME}/.gconf is a directory."
+        fi
+        if [ -d ${HOME}/.cvl-gconf ]; then
+            Log "${HOME}/.cvl-gconf/ already exists, renaming to ${HOME}/.cvl-gconf-old/"
+            mv ${HOME}/.cvl-gconf ${HOME}/.cvl-gconf-old
+        fi
+        if [ -d ${HOME}/.gconf ]; then
+            Log "Renaming ${HOME}/.gconf/ to ${HOME}/.cvl-gconf/"
+            mv ${HOME}/.gconf ${HOME}/.cvl-gconf
+            Log "Creating ${HOME}/.gconf as a symbolic link to ${HOME}/.cvl-gconf/"
+            ln -s ${HOME}/.cvl-gconf/ ${HOME}/.gconf
+        fi
+    fi
+
+    # Eventually, we should allow the preferred GNOME configuration to be passed to the 
+    # vncsession script as a command-line argument from the Launcher, but for now, we
+    # will use the VM's HOSTNAME to determine which gconf directory the ~/.gconf 
+    # symbolic link points to.
+    if [ $HOSTNAME != "huygens.massive.org.au" ]; then
+        if [ ! -d ${HOME}/.cvl-gconf ]; then
+            # We already checked earlier if ~/.gconf exists,
+            # and if so, it is renamed to ~/.cvl-gconf,
+            # so this case means that we need to load the
+            # default CVL GNOME configuration.
+            Log "Creating ${HOME}/.cvl-gconf/"
+            mkdir ${HOME}/.cvl-gconf
+            Log "Copying GNOME configuration for CVL into ${HOME}/.cvl-gconf/"
+            cp -r ${CONFIG_LIB}/gnome_config/* ${HOME}/.cvl-gconf/ || { Log "Failed to copy CVL gconf files"; }
+        fi
+        if [ -h ${HOME}/.gconf ]; then
+            Log "${HOME}/.gconf is a symbolic link."
+            CURRENT_GCONF_LINK_TARGET=`readlink ${HOME}/.gconf`
+            if [ $CURRENT_GCONF_LINK_TARGET == ${HOME}/.cvl-gconf/ ]; then
+                Log "${HOME}/.gconf is already pointing to ${CURRENT_GCONF_LINK_TARGET}"
+            else
+                Log "${HOME}/.gconf is currently pointing to ${CURRENT_GCONF_LINK_TARGET}"
+                Log "Removing ${HOME}/.gconf symbolic link."
+                rm -f ${HOME}/.gconf
+                Log "Creating ${HOME}/.gconf as a symbolic link to ${HOME}/.cvl-gconf/"
+                ln -s ${HOME}/.cvl-gconf/ ${HOME}/.gconf
+            fi
+        else
+            Log "${HOME}/.gconf is not a symbolic link."
+            if [ ! -e ${HOME}/.gconf ]; then
+                Log "${HOME}/.gconf doesn't exist."
+                Log "Creating ${HOME}/.gconf as a symbolic link to ${HOME}/.cvl-gconf/"
+                ln -s ${HOME}/.cvl-gconf/ ${HOME}/.gconf
+            fi
+            if [ -d ${HOME}/.gconf ]; then
+                Log "${HOME}/.gconf is a directory."
+                Log "Renaming ${HOME}/.gconf/ to ${HOME}/.cvl-gconf/"
+                mv ${HOME}/.gconf ${HOME}/.cvl-gconf
+                Log "Creating ${HOME}/.gconf as a symbolic link to ${HOME}/.cvl-gconf/"
+                ln -s ${HOME}/.cvl-gconf/ ${HOME}/.gconf
+            fi
+        fi
+    fi
+    # Eventually, we should allow the preferred GNOME configuration to be passed to the 
+    # vncsession script as a command-line argument from the Launcher, but for now, we
+    # will use the VM's HOSTNAME to determine which gconf directory the ~/.gconf 
+    # symbolic link points to.
+    if [ $HOSTNAME == "huygens.massive.org.au" ]; then
+        if [ ! -d ${HOME}/.huygens-gconf ]; then
+            Log "Creating ${HOME}/.huygens-gconf/"
+            mkdir ${HOME}/.huygens-gconf
+            Log "Copying GNOME configuration for Huygens into ${HOME}/.huygens-gconf/"
+            cp -r ${CONFIG_LIB}/huygens_config/* ${HOME}/.huygens-gconf/ || { Log "Failed to copy Huygens gconf files"; }
+        fi
+        if [ -h ${HOME}/.gconf ]; then
+            Log "${HOME}/.gconf is a symbolic link."
+            CURRENT_GCONF_LINK_TARGET=`readlink ${HOME}/.gconf`
+            if [ $CURRENT_GCONF_LINK_TARGET == ${HOME}/.huygens-gconf/ ]; then
+                Log "${HOME}/.gconf is already pointing to ${CURRENT_GCONF_LINK_TARGET}"
+            else
+                Log "${HOME}/.gconf is currently pointing to ${CURRENT_GCONF_LINK_TARGET}"
+                Log "Removing ${HOME}/.gconf symbolic link."
+                rm -f ${HOME}/.gconf
+                Log "Creating ${HOME}/.gconf as a symbolic link to ${HOME}/.huygens-gconf/"
+                ln -s ${HOME}/.huygens-gconf/ ${HOME}/.gconf
+            fi
+        else
+            Log "${HOME}/.gconf is not a symbolic link."
+            if [ ! -e ${HOME}/.gconf ]; then
+                Log "${HOME}/.gconf doesn't exist."
+                Log "Creating ${HOME}/.gconf as a symbolic link to ${HOME}/.huygens-gconf/"
+                ln -s ${HOME}/.huygens-gconf/ ${HOME}/.gconf
+            fi
+            if [ -d ${HOME}/.gconf ]; then
+                Log "${HOME}/.gconf is a directory."
+                Log "Renaming ${HOME}/.gconf/ to ${HOME}/.cvl-gconf/"
+                mv ${HOME}/.gconf ${HOME}/.cvl-gconf
+                Log "Creating ${HOME}/.gconf as a symbolic link to ${HOME}/.huygens-gconf/"
+                ln -s ${HOME}/.huygens-gconf/ ${HOME}/.gconf
+            fi
+        fi
+    fi
+    Log "End of selecting GNOME configuration."
+}
+
 function UpdateDesktopConfig()
 {
     Log "Start of updating GNOME configuration"
+
     if [ -d ${HOME}/.gconf ]; then
-        rm -rf ${HOME}/.gconf || { Log "Failing to remove ${HOME}/.gconf"; }
-        Log "Clean ${HOME}/.gconf"
+        rm -rf ${HOME}/.gconf/* || { Log "Failing to remove ${HOME}/.gconf"; }
+        Log "Clean ${HOME}/.gconf/*"
     fi
-    cp -r ${CONFIG_LIB}/gnome_config ${HOME}/.gconf || { Log "Failing to copy gconf files"; }
+    # Eventually, we should allow the preferred GNOME configuration to be passed to the 
+    # vncsession script as a command-line argument from the Launcher, but for now, we
+    # will use the VM's HOSTNAME to determine which gconf directory the ~/.gconf 
+    # symbolic link points to.
+    if [ $HOSTNAME == "huygens.massive.org.au" ]; then
+        cp -r ${CONFIG_LIB}/huygens_config/* ${HOME}/.gconf/ || { Log "Failed to copy Huygens gconf files"; }
+    else
+        cp -r ${CONFIG_LIB}/gnome_config/* ${HOME}/.gconf/ || { Log "Failing to copy CVL gconf files"; }
+    fi
+    if [ ! -d ${HOME}/.fontconfig ]; then
+        cp -r ${CONFIG_LIB}/fontconfig ${HOME}/.fontconfig || { Log "Failing to copy font config file"; }
+    fi
+
     Log "Update ${HOME}/.gconf done"
     Log "End of updating GNOME configuration."
 }
@@ -242,6 +363,7 @@ function UpdateReleaseVersionNumber()
 
 function Initialisation()
 {
+    SelectDesktopConfig
     ReleaseVersionUpdate
 
     if [[ ${VncServer} == "tigervnc" ]]; then
