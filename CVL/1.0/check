@@ -7,6 +7,15 @@ SOURCE_DIR=$1
 BUILD_DIR=$2
 INSTALL_DIR=$3
 
+cp ${SOURCE_DIR}/licensed_software.py ${INSTALL_DIR}/bin
+cp ${SOURCE_DIR}/software_management.sh ${INSTALL_DIR}/bin
+
+if [ -d ${INSTALL_DIR}/icons/EmapIcons ]; then
+    rm -rf ${INSTALL_DIR}/icons/EmapIcons
+fi
+
+cp -r ${SOURCE_DIR}/EmapIcons ${INSTALL_DIR}/icons
+
 # Copy module validation script to package directory.
 if [ ! -f ${INSTALL_DIR}/validate_module.sh ]; then
     cp ${SOURCE_DIR}/validate_module.sh ${INSTALL_DIR}

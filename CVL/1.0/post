@@ -1,0 +1,21 @@
+#!/bin/sh
+
+LOCAL_ICONS="/usr/local/icons"
+CVL_ICONS="/usr/local/cvl/1.0/icons"
+
+if [ ! -f ${LOCAL_ICONS} ]; then
+    mkdir ${LOCAL_ICONS} 
+fi
+
+if [ ! -L ${LOCAL_ICONS}/cvl ]; then
+    ln -s ${CVL_ICONS} ${LOCAL_ICONS}/cvl 
+fi
+
+if [ ! -h "/usr/local/bin/licensed_software.py" ]; then
+    ln -s /usr/local/cvl/1.0/bin/licensed_software.py /usr/local/bin
+fi
+
+if [ ! -h "/usr/local/bin/software_management.sh" ]; then
+    ln -s /usr/local/cvl/1.0/bin/software_management.sh /usr/local/bin
+fi
+
