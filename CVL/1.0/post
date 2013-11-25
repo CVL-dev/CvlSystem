@@ -11,11 +11,16 @@ if [ ! -L ${LOCAL_ICONS}/cvl ]; then
     ln -s ${CVL_ICONS} ${LOCAL_ICONS}/cvl 
 fi
 
-if [ ! -h "/usr/local/bin/licensed_software.py" ]; then
-    ln -s /usr/local/cvl/1.0/bin/licensed_software.py /usr/local/bin
+if [ -h "/usr/local/bin/licensed_software.py" ]; then
+    rm -f /usr/local/bin/licensed_software.py
 fi
 
-if [ ! -h "/usr/local/bin/software_management.sh" ]; then
-    ln -s /usr/local/cvl/1.0/bin/software_management.sh /usr/local/bin
+if [ -h "/usr/local/bin/software_management.sh" ]; then
+    rm -f /usr/local/bin/software_management.sh
+fi
+
+if [ ! -h "/usr/local/bin/cvl_software_access.sh" ]; then
+
+    ln -s /usr/local/cvl/1.0/bin/cvl_software_access.sh /usr/local/bin
 fi
 
