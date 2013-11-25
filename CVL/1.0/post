@@ -18,9 +18,3 @@ fi
 if [ -h "/usr/local/bin/software_management.sh" ]; then
     rm -f /usr/local/bin/software_management.sh
 fi
-
-if [ ! -h "/usr/local/bin/cvl_software_access.sh" ]; then
-
-    ln -s /usr/local/cvl/1.0/bin/cvl_software_access.sh /usr/local/bin
-fi
-
