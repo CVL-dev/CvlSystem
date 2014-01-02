@@ -10,7 +10,7 @@ ModuleFileDescription="Application"
 #
 # Package release number.
 #
-PACKAGE_RELEASE="4.0.15"
+PACKAGE_RELEASE="4.0.0"
 
 #
 # For source package, set it "ON", for binary package, set it "OFF".
@@ -18,9 +18,30 @@ PACKAGE_RELEASE="4.0.15"
 SOURCE_BUILD_FLAG="ON"
 
 #
+# Set RPM package dependency requires, using following string format and 
+# delimited by ",". <package1 >= version, package2 >= version, .....>
+#
+#RPM_PACKAGE_REQUIRES="python >= 2.5.0, tkinter >= 2.6.6"
+
+#
+# Pre uninstallation script for RPM package only. The bash script file 
+# should be available in the source location. Edit following variable for 
+# file name (no path) and only one script can be defined.
+#
+#PreUninstallScript=
+
+#
+# Post uninstallation script for RPM package only. The bash script file 
+# should be available in the source location. Edit following variable for 
+# file name (no path) and only one script can be defined.
+#
+#PostUninstallScript=
+
+
+#
 # Source configure file.
 #
-CONFIGURE="configure"
+CONFIGURE="readme.txt"
 
 #
 # Build configuration set up.
@@ -30,7 +51,7 @@ function ConfigurationCommand()
     SOURCE=$1
     INSTALL=$2
 
-    ${SOURCE}/${CONFIGURE} ${SOURCE} ${INSTALL}
+    cp -r ${SOURCE}/* ${INSTALL}
 }
 
 #
@@ -66,11 +87,11 @@ function PatchCommand()
 # Note: Certain characters such as " and $ need be escaped by "\"
 #
 #EnvironmentModuleList="
-#prepend-path --delim \" \" JPEG_CFLAGS -I/usr/local/$name/$ver/include;
-#prepend-path --delim \" \" JPEG_LDFLAGS -L/usr/local/$name/$ver/lib;
-#prepend-path --delim \" \" JPEG_LDFLAGS -lturbojpeg\n
-#prepend-path --delim \" \" CPPFLAGS -I/usr/local/$name/$ver/include;
-#prepend-path --delim \" \" LDFLAGS -L/usr/local/$name/$ver/lib"
+#prepend-path --delim \" \" JPEG_CFLAGS -I/usr/local/\$name/\$ver/include;
+#prepend-path --delim \" \" JPEG_LDFLAGS -L/usr/local/\$name/\$ver/lib;
+#prepend-path --delim \" \" JPEG_LDFLAGS -lturbojpeg;
+#prepend-path --delim \" \" CPPFLAGS -I/usr/local/\$name/\$ver/include;
+#prepend-path --delim \" \" LDFLAGS -L/usr/local/\$name/\$ver/lib"
 
 #
 # Install configuration files to package in format of "<Source>:<Destination>",
@@ -92,33 +113,55 @@ function PatchCommand()
 #
 # The <project_type> is currently only defined for "cvl" project.
 # Supporting for "cvl" application_menu includes:
-# - toolbox
-# - system
-# - help 
-# - structural-biology
-# - neuroimaging
-# - energy-materials
+# - toolbox for General Imaging Tools 
+# - system for System Tools
+# - help for Top Level Helps 
+# - structural-biology for Structural Bilogy Driver
+# - neuroimaging for Neuroimagin Driver
+# - energy-materials-atom for Energy Materials Atom Driver
+# - energy-materials-xray for Energy Materials xray Driver
 #
 MenuLayout="cvl:help"
 
 #
-# Set directory menu in format <comment>:<icon>. If the icon file is from
-# package, using "~" for package installation path.
+# Set module category menu, the syntax is in following format:
 #
-MenuDirectory="Get CVL support:help"
+# <name>:<icon>:<category> 
+# 
+# (1) <name> is the module name showing on menu. 
+#
+# (2) <icon> is the icon file, if the icon file is from the package, using "~" 
+#     for package parent path.
+#
+# (3) <category> is optional, it does not need to be specified if the <name> 
+#     is the application name. Otherwise, it can be defined similar to the 
+#     <name> without white spaces. Make sure there are NO SPACES in <category>.
+#
+MenuDirectory="EMAP Software Access Help:help"
 
 #
-# Set desktop menu in format <executable_file>:<comment>:<icon>:<add_terminal>,
-# multiple lines should be delimited by ";". The value of <add_terminal> flag
-# is "true" or "false"
+# Set desktop menu, the syntax is in following format:
 #
-# If the icon file is from package, using "~" for package installation path.
+# <executable_file>:<name>:<icon>:<add_terminal>:<license>
 #
-# The binary_path is a relative path including executable filename but without 
-# the installation prefix. For example, if /usr/local/turbovnc/1.1/bin/vncviewer
-# is the FQPN, the executable_file should be set to bin/vncviewer.
+# (1) <executable_file> is relative path to the installation prefix. If the
+#     executable file is in /usr/local/fsl/5.0/bin/fsl, it should be set to
+#     "bin/fsl"
 #
-MenuDesktop="bin/CvlHelp:Where to get support:help:false"
+# (2) <name> is the application name showing on menu.
+#
+# (3) <icon> is the name of icon file, if the icon file is from the package, 
+#     using "~" for package parent path.
+#
+# (4) <add_terminal> is a flag with two values of "true" or false".
+#
+# (5) <license> is optional, ignore it if there is no license requirement.
+#     It should point to the license file in the package. For example, 
+#     /usr/local/fsl/5.0/bin/license.txt should be set to "bin/license.txt"
+#
+# Multiple lines should be delimited by ";".
+#
+MenuDesktop="/bin/emaphelp:How to access EMAP software:help:false"
 
 #
 # Set library dependencies in following format (version is optional):
@@ -139,7 +182,7 @@ REQUEST_PACKAGE="ON"
 #
 # Build in source directory, "ON" or "OFF".
 #
-BUILD_IN_SOURCE="ON"
+BUILD_IN_SOURCE="OFF"
 
 #
 # Install module file flag, "ON" or "OFF".
@@ -164,14 +207,14 @@ AutoDependencyCheck="true"
 # should be available in the source location. Edit following variable for 
 # file name (no path) and only one script can be defined.
 #
-# PreInstallScript=
+#PreInstallScript="cvl-license-installer.sh"
 
 #
 # Post installation script for RPM package only. The bash script file 
 # should be available in the source location. Edit following variable for 
 # file name (no path) and only one script can be defined.
 #
-#PostInstallScript="post"
+# PostInstallScript=
 
 case "$1" in
     -a|--description)
@@ -244,10 +287,19 @@ case "$1" in
     -v|--pre-install-script-file)
         echo -n ${PreInstallScript}
         ;;
+    -w|--rpm-package-requires)
+        echo -n ${RPM_PACKAGE_REQUIRES}
+        ;;
     -y|--post-install-script-file)
         echo -n ${PostInstallScript}
         ;;
     -z|--source-build-flag)
         echo -n ${SOURCE_BUILD_FLAG}
+        ;;
+    -x1|--pre-uninstall-script-file)
+        echo -n ${PreUninstallScript}
+        ;;
+    -x2|--post-uninstall-script-file)
+        echo -n ${PostUninstallScript}
         ;;
 esac
