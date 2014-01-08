@@ -10,7 +10,7 @@ ModuleFileDescription="Application"
 #
 # Package release number.
 #
-PACKAGE_RELEASE="4.0.16"
+PACKAGE_RELEASE="4.0.17"
 
 #
 # For source package, set it "ON", for binary package, set it "OFF".
