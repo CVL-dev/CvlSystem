@@ -1,0 +1,305 @@
+#!/bin/sh
+#
+# CVL build system to configure source parameters.
+#
+#
+# Module file description.
+#
+ModuleFileDescription="Application"
+
+#
+# Package release number.
+#
+PACKAGE_RELEASE="4.0.9"
+
+#
+# For source package, set it "ON", for binary package, set it "OFF".
+#
+SOURCE_BUILD_FLAG="ON"
+
+#
+# Set RPM package dependency requires, using following string format and 
+# delimited by ",". <package1 >= version, package2 >= version, .....>
+#
+#RPM_PACKAGE_REQUIRES="python >= 2.5.0, tkinter >= 2.6.6"
+
+#
+# Pre uninstallation script for RPM package only. The bash script file 
+# should be available in the source location. Edit following variable for 
+# file name (no path) and only one script can be defined.
+#
+#PreUninstallScript=
+
+#
+# Post uninstallation script for RPM package only. The bash script file 
+# should be available in the source location. Edit following variable for 
+# file name (no path) and only one script can be defined.
+#
+#PostUninstallScript=
+
+
+#
+# Source configure file.
+#
+CONFIGURE="CMakeLists.txt"
+
+#
+# Build configuration set up.
+#
+function ConfigurationCommand() 
+{
+    SOURCE=$1
+    INSTALL=$2
+
+    module load qt/4.8.2
+    module load qtkeychain
+    module load icu
+ 
+    cmake -DCMAKE_INSTALL_PREFIX=${INSTALL} -DQTKEYCHAIN_LIBRARY=${QTKEYCHAIN_ROOT}/lib64/libqtkeychain.so -DQTKEYCHAIN_INCLUDE_DIR=${QTKEYCHAIN_ROOT}/include -DCMAKE_PREFIX_PATH=${QT_ROOT}/lib/cmake -DBUILD_WITH_QT4=ON ${SOURCE}
+}
+
+#
+# Make command
+#
+function MakeCommand()
+{
+    module load icu
+    make
+}
+
+#
+# Make install command
+#
+function InstallCommand()
+{
+    make install
+}
+
+#
+# Source patch command.
+#
+function PatchCommand()
+{
+    SourceDirectory=$1
+    BuildSourceDirectory=$2
+    InstallDirectory=$3
+
+    echo
+}
+
+#
+# Module file environment setting, multiple lines should be delimited by ";"
+# Note: Certain characters such as " and $ need be escaped by "\"
+#
+EnvironmentModuleList="prepend-path LD_LIBRARY_PATH /usr/local/\$name/\$ver/lib64"
+
+#
+# Install configuration files to package in format of "<Source>:<Destination>",
+# multiple lines must be delimited by ";". Source files must be available in
+# current source directory.
+#
+PackageInstallFileList="owncloud.png:/usr/local/icons;aarnet.jpg:/usr/local/icons"
+
+#
+# Install configuration directories to package in format of 
+# "<Source>:<Destination>", multiple lines must be delimited by ";". 
+# Source files must be available in current source directory.
+#
+#PackageInstallDirectoryList=
+
+#
+# Set menu layout in format <project_type>:<application_menu>. If this is not 
+# set, the following MeuDirectory and MenuDesktop will be ignored.
+#
+# The <project_type> is currently only defined for "cvl" project.
+# Supporting for "cvl" application_menu includes:
+# - toolbox for General Imaging Tools 
+# - system for System Tools
+# - help for Top Level Helps 
+# - structural-biology for Structural Bilogy Driver
+# - neuroimaging for Neuroimagin Driver
+# - energy-materials-atom for Energy Materials Atom Driver
+# - energy-materials-xray for Energy Materials xray Driver
+#
+MenuLayout="cvl:system"
+
+#
+# Set module category menu, the syntax is in following format:
+#
+# <name>:<icon>:<category> 
+# 
+# (1) <name> is the module name showing on menu. 
+#
+# (2) <icon> is the icon file, if the icon file is from the package, using "~" 
+#     for package parent path.
+#
+# (3) <category> is optional, it does not need to be specified if the <name> 
+#     is the application name. Otherwise, it can be defined similar to the 
+#     <name> without white spaces. Make sure there are NO SPACES in <category>.
+#
+MenuDirectory="AARNET CloudStor+:/usr/local/icons/aarnet.jpg"
+
+#
+# Set desktop menu, the syntax is in following format:
+#
+# <executable_file>:<name>:<icon>:<add_terminal>:<license>
+#
+# (1) <executable_file> is relative path to the installation prefix. If the
+#     executable file is in /usr/local/fsl/5.0/bin/fsl, it should be set to
+#     "bin/fsl"
+#
+# (2) <name> is the application name showing on menu.
+#
+# (3) <icon> is the name of icon file, if the icon file is from the package, 
+#     using "~" for package parent path.
+#
+# (4) <add_terminal> is a flag with two values of "true" or false".
+#
+# (5) <license> is optional, ignore it if there is no license requirement.
+#     It should point to the license file in the package. For example, 
+#     /usr/local/fsl/5.0/bin/license.txt should be set to "bin/license.txt"
+#
+# Multiple lines should be delimited by ";".
+#
+MenuDesktop="bin/owncloud:CloudStor+:/usr/local/icons/aarnet.jpg:false;/bin/help.sh:CloudStor+ Help:help:false"
+
+#
+# Set library dependencies in following format (version is optional):
+# <module1/version>:<module2/version>...:<moduleN/version>
+#
+LibraryDependency="icu:qt/4.8.2:qtkeychain"
+
+#
+# Local build flag, set it to ON for building or OFF otherwise.
+#
+REQUEST_BUILD="ON"
+
+#
+# Local package flag, set it to ON for packaging or OFF otherwise.
+#
+REQUEST_PACKAGE="ON"
+
+#
+# Build in source directory, "ON" or "OFF".
+#
+BUILD_IN_SOURCE="OFF"
+
+#
+# Install module file flag, "ON" or "OFF".
+#
+INSTALL_MODULE_FILE="ON"
+
+#
+# Binary installation directory "<Source>:<Destination>". This field is only 
+# for applications which have special requirement of source code in different 
+# structure or different binary destination directory.
+#
+#InstallDirectory=
+
+#
+# Package auto dependency check flag, "true" for enabling the check, "false"
+# for not.
+#
+AutoDependencyCheck="true"
+
+#
+# Pre installation script for RPM package only. The bash script file 
+# should be available in the source location. Edit following variable for 
+# file name (no path) and only one script can be defined.
+#
+#PreInstallScript="cvl-license-installer.sh"
+
+#
+# Post installation script for RPM package only. The bash script file 
+# should be available in the source location. Edit following variable for 
+# file name (no path) and only one script can be defined.
+#
+# PostInstallScript=
+
+case "$1" in
+    -a|--description)
+        echo -n ${ModuleFileDescription}
+        ;;
+    -b|--build)
+        echo -n ${REQUEST_BUILD}
+        ;;
+    -c|--config)
+        SOURCE_DIR="$2"
+        INSTALL_DIR="$3"
+        ConfigurationCommand ${SOURCE_DIR} ${INSTALL_DIR}
+        ;;
+    -d|--directory-installation-list)
+        echo -n ${PackageInstallDirectoryList}
+        ;;
+    -e|--environment-module-list)
+        echo -n ${EnvironmentModuleList}
+        ;;
+    -f|--file-installation-list)
+        echo -n ${PackageInstallFileList}
+        ;;
+    -g|--group-module-file-installation)
+        echo -n ${INSTALL_MODULE_FILE}
+        ;;
+    -h|--install-directory)
+        echo -n ${InstallDirectory}
+        ;;
+    -i|--install-command)
+        InstallCommand
+        ;;
+    -j|--patch-command)
+        SOURCE_DIR="$2"
+        BUILD_SOURCE_DIR="$3"
+        INSTALL_DIR="$4"
+        PatchCommand ${SOURCE_DIR} ${BUILD_SOURCE_DIR} ${INSTALL_DIR}
+        ;;
+    -k|--make-command)
+        MakeCommand
+        ;;
+    -l|--menu-layout)
+        echo -n ${MenuLayout}
+        ;;
+    -m|--module-file)
+        ;;
+    -n|--menu-directory)
+        echo -n ${MenuDirectory}
+        ;;
+    -o|--menu-desktop)
+        echo -n ${MenuDesktop}
+        ;;
+    -p|--package)
+        echo -n ${REQUEST_PACKAGE}
+        ;;
+    -q|--library-dependency)
+        echo -n ${LibraryDependency}
+        ;;
+    -r|--release)
+        echo -n ${PACKAGE_RELEASE}
+        ;;
+    -s|--use-source-directory)
+        echo -n ${BUILD_IN_SOURCE}
+        ;;
+    -t|--type)
+        echo -n ${CONFIGURE}
+        ;;
+    -u|--auto-dependency-check)
+        echo -n ${AutoDependencyCheck}
+        ;;
+    -v|--pre-install-script-file)
+        echo -n ${PreInstallScript}
+        ;;
+    -w|--rpm-package-requires)
+        echo -n ${RPM_PACKAGE_REQUIRES}
+        ;;
+    -y|--post-install-script-file)
+        echo -n ${PostInstallScript}
+        ;;
+    -z|--source-build-flag)
+        echo -n ${SOURCE_BUILD_FLAG}
+        ;;
+    -x1|--pre-uninstall-script-file)
+        echo -n ${PreUninstallScript}
+        ;;
+    -x2|--post-uninstall-script-file)
+        echo -n ${PostUninstallScript}
+        ;;
+esac

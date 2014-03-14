@@ -1,0 +1,29 @@
+
+<html>
+<body>
+<br>
+<br>
+<p><h2>Setup AARNET CloudStor+ synchronization</h2></p>
+<p>
+The following instructions are used for people are interested in synchronizing data between local computers and CVL desktop using AARNET CloudStor+ storage. You can visit <a href="https://cvl.massive.org.au/cvl">User Guide</a> for more details. If you have no intention to set up this process, click following Cancel button. 
+<br>
+<br>  
+Be aware of that your CVL home directory has limited disk resources which are shared by all users, please think prudently before adding large data to AARNET CloudStor+ storage. Contact to CVL team at cvl-help@monash.edu if you need further assistance.
+</p>
+<p>
+</p>
+<p><h3>(1) Create your AARNET CloudStor+ account</h3></p>
+<br>
+If you haven't registered an AARNET CloudStor+ account, following the link <a href="https://cloudstor.aarnet.edu.au/plus">https://cloudstor.aarnet.edu.au/plus</a> to create your AARNET CloudStor+ account. You can open the same link in your local computer to add data to AARNET CloudStor+ storage.
+<p><h3>(2)AARNET CloudStor+ account setup</h3></p>
+<br>
+<ul>
+<li>Open <a href="https://cloudstor.aarnet.edu.au/plus">https://cloudstor.aarnet.edu.au/plus</a> to set up your password.</li>
+<li>Click on your name in the top right hand corner of the web interface and select "Personal" from the dropdown list.</li>
+<li>If the "Current Password" has not yet been set, so for the first time leave it blank and simply enter a unique sync client password in the "New Password" field and click "Change password". This password is only for use with the desktop synch, it will not change the password you use to log in via AAF web interface. </li>
+<li>If your following email address is incorrect, or if it is empty, enter your CloudStor+ email address and click the Save button. Otherwise click the Run button.</li>
+<li>Enter your password to the poping up box and click the OK button.</li>
+<li>The CloudStor+ client is an ownCloud desktop client, after launching it, you will see its icon on the top right panel. Right click the icon, you can select different options from a pop up menu. You can change configuration by editing the Settings.</li>
+</ul>
+</body>
+</html>

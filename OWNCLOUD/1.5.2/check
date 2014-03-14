@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# CVL build system to check or configure building process after installation.
+#
+
+SOURCE_DIR=$1
+BUILD_DIR=$2
+INSTALL_DIR=$3
+
+cp -f ${SOURCE_DIR}/owncloud-run ${INSTALL_DIR}/bin
+cp -f ${SOURCE_DIR}/cloudstor_getting_started_v3_1.pdf ${INSTALL_DIR}/bin
+cp -f ${SOURCE_DIR}/help.sh ${INSTALL_DIR}/bin
+cp -f ${SOURCE_DIR}/cvl_cloudstore_setup.py ${INSTALL_DIR}/bin
+cp -f ${SOURCE_DIR}/setup.txt ${INSTALL_DIR}/bin
+
+# Copy module validation script to package directory.
+if [ ! -f ${INSTALL_DIR}/validate_module.sh ]; then
+    cp ${SOURCE_DIR}/validate_module.sh ${INSTALL_DIR}
+fi

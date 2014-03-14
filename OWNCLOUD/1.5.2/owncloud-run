@@ -1,0 +1,85 @@
+#!/bin/sh
+#
+# CVL run script for GUI applications.
+#
+
+USERHOME="$HOME"
+VNCHOME="${USERHOME}/.vnc"
+RUN_LOG="/usr/local/bin/cvllog.sh"
+LOG_FILE="${VNCHOME}/cvlcloudstoreplus.log"
+
+if [ -f ${RUN_LOG} ]; then
+    source ${RUN_LOG} ${LOG_FILE}
+fi
+
+user_email=""
+module load owncloud/1.5.2
+
+function RunOwnCloud() {
+    VIS=/usr/local/bin/cvlvisrun
+    module load icu
+    module load qt/4.8.2
+    module load qtkeychain
+    owncloud --logfile $HOME/.vnc/cloudstorplus.log --logexpire 24 &
+    sleep 10 
+    RV=$?
+    if [ ${RV} -eq 0 ]; then
+        Log "start owncloud good" 
+    else
+        Log "failed to run owncloud" 
+    fi
+}
+
+setup_done="True"
+configdir="$HOME/.local/share/data/ownCloud"
+
+function SetupOwnCloud() {
+    dir=$(dirname $(which owncloud-run))
+    response=$(${dir}/cvl_cloudstore_setup.py -m ${dir}/setup.txt --email ${HOME}/.emailaddress)
+    echo "Response = ${response}"
+    if [[ ${response} == "Run" ]]; then
+    	user_email=$(cat ${HOME}/.emailaddress)
+        if [ -z ${user_email} ]; then
+            Log "Error: empty email address" 
+            setup_done="False"
+            return 1 
+        fi
+        if [ ! -d $HOME/cloudstorplus ]; then
+    	    mkdir $HOME/cloudstorplus
+        fi
+        if [ ! -d ${configdir}/folder ]; then
+    	    mkdir -p ${configdir}/folder 
+        fi
+    	echo "[ownCloud]" > ${configdir}/owncloud.cfg
+    	echo "url=https://cloudstor.aarnet.edu.au/plus" >> ${configdir}/owncloud.cfg
+    	echo "http_user=${user_email}" >> ${configdir}/owncloud.cfg
+    	echo "authType=http" >> ${configdir}/owncloud.cfg
+    	echo "user=${user_email}" >> ${configdir}/owncloud.cfg
+    	echo "[ownCloud]" > ${configdir}/folders/ownCloud
+    	echo "localPath=$HOME/cloudstorplus" >> ${configdir}/folders/ownCloud
+    	echo "targetPath=/" >> ${configdir}/folders/ownCloud
+    	echo "backend=owncloud" >> ${configdir}/folders/ownCloud
+    	echo "connection=ownCloud" >> ${configdir}/folders/ownCloud
+    
+    elif [[ ${response} == "Cancel" ]]; then
+        setup_done="False"
+        Log "Cance set up"
+    fi
+}
+
+if [ ! -f ${configdir}/folders/ownCloud ]; then
+    Log "Run setup"
+    SetupOwnCloud
+fi
+
+owncloudProcess=$(ps -u ${USER} | grep owncloud | grep -v owncloud-run)
+
+if [[ -z "${owncloudProcess}" && ${setup_done} == "True" ]]; then
+    Log "Run client"
+    RunOwnCloud    
+fi
+
+if [[ ${setup_done} == "True" ]]; then
+    Log "Open file browser"
+    nautilus --browser $HOME/cloudstorplus
+fi
